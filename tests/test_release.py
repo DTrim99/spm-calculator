@@ -160,15 +160,31 @@ def test_new_download_cannot_be_backdated_into_existing_release(tmp_path):
         build()
 
 
-def test_published_web_export_reproduces_exact_bundled_bytes():
+def test_published_web_export_reproduces_exact_bundled_bytes(tmp_path):
+    # Verify the deployed release independently of a pending package version.
+    # The exporter still reads the current calculation code and bundled bytes.
+    config = json.loads(
+        (ROOT / "web/public/data/release_config.json").read_text()
+    )
+    published_version = config["packageVersion"]
+    (tmp_path / "pyproject.toml").write_text(
+        f'[project]\nversion = "{published_version}"\n'
+    )
+    (tmp_path / "scripts").mkdir()
+    script = tmp_path / "scripts/export_web_release.py"
+    shutil.copyfile(ROOT / "scripts/export_web_release.py", script)
+    for directory in ("spm_calculator", "web"):
+        (tmp_path / directory).symlink_to(
+            ROOT / directory, target_is_directory=True
+        )
     subprocess.run(
         [
             sys.executable,
-            str(ROOT / "scripts/export_web_release.py"),
+            str(script),
             "--published-package-version",
-            "1.0.0.post1",
+            published_version,
             "--check",
         ],
-        cwd=ROOT,
+        cwd=tmp_path,
         check=True,
     )

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spm-calculator"
-version = "1.0.0.post1"
+version = "1.0.1"
 description = "Calculate Supplemental Poverty Measure thresholds and conditional forecasts"
 readme = "README.md"
 license = "MIT"

@@ -1400,7 +1400,7 @@ wheels = [
 
 [[package]]
 name = "spm-calculator"
-version = "1.0.0.post1"
+version = "1.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "census" },
