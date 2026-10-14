@@ -7,6 +7,7 @@ import json
 import pytest
 
 from scripts import verify_provenance_equivalence as verifier
+from scripts.verify_horizon_extension import retained_bytes
 from spm_calculator.release import canonical_bytes
 from spm_calculator.rolling_forecast import seal_forecast
 
@@ -23,11 +24,11 @@ def documents():
         hashlib.sha256(original_bytes).hexdigest()
         == verifier.ORIGINAL_FILE_SHA256
     )
-    current_path = (
-        verifier.ROOT
-        / "spm_calculator/data/current/rolling_forecast_2026_09_09.json"
+    # The adapted artifact, retained after the 2036 horizon rebuild.
+    adapted = retained_bytes(
+        "spm_calculator/data/current/rolling_forecast_2026_09_09.json"
     )
-    return json.loads(original_bytes), json.loads(current_path.read_text())
+    return json.loads(original_bytes), json.loads(adapted)
 
 
 def _reseal(document):
