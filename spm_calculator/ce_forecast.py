@@ -1049,7 +1049,7 @@ def build_ce_forecast(
     housing_share_anchor: dict[str, float],
     national_anchor_year: int = 2025,
     share_anchor_year: int = 2025,
-    end_year: int = 2035,
+    end_year: int = 2036,
     inflation_rates: dict[int, float],
     include_backtest: bool = True,
     information_date: str = INFORMATION_DATE,

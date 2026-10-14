@@ -21,7 +21,7 @@ def load_horizon_inputs():
     return document
 
 
-def projection_rates(*, end_year=2035):
+def projection_rates(*, end_year=2036):
     rates = load_horizon_inputs()["prices"]["annual_growth_by_year"]
     expected = set(range(2026, end_year + 1))
     if end_year < 2026 or expected - {int(y) for y in rates}:

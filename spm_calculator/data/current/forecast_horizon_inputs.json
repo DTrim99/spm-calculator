@@ -15406,7 +15406,7 @@
       "state_fips": "55"
     }
   },
-  "content_sha256": "54644ccd9004b7c476579c2bea0d29ea0475eee77919afb09d8756e76e3ab415",
+  "content_sha256": "4874421aa78f4301c4247951ad4ac186637e6bdfd64a4b64f564e032a2c954d3",
   "county_assignments": {
     "assignment_method": "County membership in February2013 CBSAs, published Census area menu and within-state residual groups; public research assignment, not exact confidential CPS state-part assignment",
     "boundary_vintage": "2013-02-28",
@@ -21703,7 +21703,7 @@
         "56045": "56002"
       }
     },
-    "sha256": "1233a3f4632506427a216a6dce808c50eec8d5c91f5854fc0697454f03dcdd3b",
+    "sha256": "7bcfd3f2e541ade8b051f3b3c5e7657be0c675e005295e68234a676a566d2b7c",
     "year_maps": {
       "2022": "2022",
       "2023": "2023",
@@ -21718,10 +21718,11 @@
       "2032": "2023",
       "2033": "2023",
       "2034": "2023",
-      "2035": "2023"
+      "2035": "2023",
+      "2036": "2023"
     }
   },
-  "generator_sha256": "e5258c7f3bee2e0536509efe6f5095fc07d9530ecd978915cec39f56ca746d8f",
+  "generator_sha256": "0ec505b5102ffb75b9cc8c29ea77729e6189a62e3d02110932499959db43d78d",
   "historical": {
     "2022": {
       "acs_window": {
@@ -22824,7 +22825,8 @@
       "2032": 0.02257372697332216,
       "2033": 0.02256625901981013,
       "2034": 0.022566253555256655,
-      "2035": 0.022570320442821146
+      "2035": 0.022570320442821146,
+      "2036": 0.02257540272888403
     },
     "cbo_index_levels": {
       "2023": 304.704,

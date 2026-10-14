@@ -276,7 +276,7 @@ def build_result(
         for code in anchors
     }
     kwargs = dict(
-        end_spm_year=2035,
+        end_spm_year=2036,
         anchor_status_by_area=anchor_status,
         price_growth_by_year=rates,
     )
@@ -508,7 +508,7 @@ def build_result(
             "information_date": information_date,
             "source_vintages": bundle["source_vintages"],
             "puma_vintage_by_spm_year": {
-                str(y): 2010 if y == 2022 else 2020 for y in range(2022, 2036)
+                str(y): 2010 if y == 2022 else 2020 for y in range(2022, 2037)
             },
             "historical_2022_geography": historical_bundle["geography_method"],
             "cbsa_vintage": "2013-02-28",

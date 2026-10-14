@@ -11,9 +11,10 @@ from spm_calculator.forecast_inputs import (
 def test_cbo_calendar_growth_uses_one_source_vintage():
     # CBO February2026 calendar CPI-U levels, not Q4/Q4 or a mixed-vintage ratio.
     rates = projection_rates()
-    assert set(rates) == set(range(2026, 2036))
+    assert set(rates) == set(range(2026, 2037))
     assert rates[2026] == pytest.approx(331.807 / 322.378 - 1)
     assert rates[2035] == pytest.approx(407.346 / 398.355 - 1)
+    assert rates[2036] == pytest.approx(416.542 / 407.346 - 1)
     with pytest.raises(ValueError, match="coverage"):
         projection_rates(end_year=2037)
 

@@ -189,7 +189,7 @@ def build_inputs():
         "assignment_method": "County membership in February2013 CBSAs, published Census area menu and within-state residual groups; public research assignment, not exact confidential CPS state-part assignment",
         "maps": {"2022": older, "2023": assignments},
         "year_maps": {
-            str(y): "2022" if y == 2022 else "2023" for y in range(2022, 2036)
+            str(y): "2022" if y == 2022 else "2023" for y in range(2022, 2037)
         },
     }
     assignment["sha256"] = hashlib.sha256(
@@ -202,7 +202,7 @@ def build_inputs():
             if row["variable"] == "cpiu"
         }
     rates = {
-        str(y): indices[y] / indices[y - 1] - 1 for y in range(2026, 2036)
+        str(y): indices[y] / indices[y - 1] - 1 for y in range(2026, 2037)
     }
     sources.append(
         _source(
