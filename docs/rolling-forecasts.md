@@ -6,7 +6,7 @@ growth are separate assumptions. An inflation-only projection holds the real
 spending of new observations constant; it does not imply that actual real
 spending will remain constant.
 
-Version 1.0 loads one canonical schema 2 artifact for 2022–2035, with
+Version 1.1 loads one canonical schema 2 artifact for 2022–2036, with
 published national inputs through 2025 and conditional research forecasts
 thereafter. [Archived source snapshots](spm-releases.md) and forecast
 commitments retain their original bytes. The artifact records an information
@@ -33,6 +33,7 @@ uses the preceding five calendar years of ACS rents.
 | 2029 | 2024Q2–2029Q1 | 16 | 2024–2028 | 4 |
 | 2030 | 2025Q2–2030Q1 | 20 | 2025–2029 | 5 |
 | 2035 | 2030Q2–2035Q1 | 20 | 2030–2034 | 5 |
+| 2036 | 2031Q2–2036Q1 | 20 | 2031–2035 | 5 |
 
 National thresholds and housing shares for 2022–2025 use published BLS
 values directly. Published Census indices anchor represented areas in
@@ -56,7 +57,7 @@ The price factor uses the CE composite index with weights from the origin's
 five-year sample. Historical annual CPI observations are pinned. The future
 path uses the February 2026 CBO calendar-year CPI-U forecast:
 2.9248% in 2026, 2.5476% in 2027, 2.3614% in 2028, 2.2880% in 2029 and
-about 2.26% annually in 2030–2035. The [pinned CBO source](https://raw.githubusercontent.com/US-CBO/cbo-data/284a95665f9f2f74ed1f482feb629b43fce323da/data/economic/economic_projections/calendar_2026-02.csv)
+about 2.26% annually in 2030–2036. The [pinned CBO source](https://raw.githubusercontent.com/US-CBO/cbo-data/284a95665f9f2f74ed1f482feb629b43fce323da/data/economic/economic_projections/calendar_2026-02.csv)
 and [horizon inputs](../spm_calculator/data/current/forecast_horizon_inputs.json)
 record the exact annual levels and growth rates. Growth ratios apply to
 the observed BLS 2025 anchor. Applying aggregate growth uniformly to future
@@ -183,7 +184,7 @@ For housing share s and rent index I, the location factor is `1 + s × (I−1)`.
 Both s and I can change over time. Under this artifact's fixed 2024 donor
 distribution, uniform nominal growth and matching deflator, all 349 relative
 rent indices reach their final constant level in SPM year 2029, through
-2035. The first unchanged transition is 2029→2030. The 2029 window contains
+2036. The first unchanged transition is 2029→2030. The 2029 window contains
 the observed 2024 cohort plus four projected cohorts; 2030 is the first
 all-projected window. The estimator continues advancing windows; it does
 not manually freeze rent values.

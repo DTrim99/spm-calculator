@@ -19,7 +19,7 @@ from spm_calculator.rolling_forecast import load_forecast
 
 REPO = Path(__file__).parents[1]
 CONFIG = REPO / "web/public/data/release_config.json"
-YEARS = range(2022, 2036)
+YEARS = range(2022, 2037)
 PUBLISHED_2025 = {
     "owner_with_mortgage": 41322.707394,
     "owner_without_mortgage": 34325.99772,
@@ -91,7 +91,7 @@ def test_committed_browser_export_matches_canonical_artifact(config):
         "publishedVersion": "1.0.0.post1",
         "pypiUrl": "https://pypi.org/project/spm-calculator/1.0.0.post1/",
     }
-    assert config["packageVersion"] == "1.0.1"
+    assert config["packageVersion"] == "1.1.0"
     assert config["packageDistribution"]["status"] == "local_preview"
     assert {
         key: value
@@ -174,7 +174,7 @@ def test_area_menu_is_year_specific_and_preserves_status(
 def test_area_removed_from_later_year_is_not_in_union_menu(config):
     assert "45001" in config["areasByYear"]["2022"]
     assert "modeled_residual_metro:45" not in config["areasByYear"]["2022"]
-    for year in range(2023, 2036):
+    for year in range(2023, 2037):
         assert "45001" not in config["areasByYear"][str(year)]
         assert "modeled_residual_metro:45" in config["areasByYear"][str(year)]
 
@@ -380,7 +380,7 @@ def test_component_statuses_are_independent_and_area_specific(config):
         entry["geography_by_area"]["35620"]["anchor_status"]
         == "published_anchor"
     )
-    for year in range(2026, 2036):
+    for year in range(2026, 2037):
         assert years[str(year)]["national_status"] == "forecast"
         assert years[str(year)]["housing_share_status"] == "modeled"
 
@@ -395,7 +395,7 @@ def test_future_cbo_ratios_are_explicit_uniform_component_and_rent_assumptions(
     assert "not CBO component forecasts" in price["component_assumption"]
     assert "not CBO local rent forecasts" in price["rent_assumption"]
     levels = price["cbo_index_levels"]
-    for year in range(2026, 2036):
+    for year in range(2026, 2037):
         growth = levels[str(year)] / levels[str(year - 1)] - 1
         assert forecast["cpiProjections"][str(year)] == pytest.approx(growth)
         assert document["assumptions"]["acs"]["nominal_rent_growth_by_year"][

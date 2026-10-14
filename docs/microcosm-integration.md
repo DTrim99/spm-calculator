@@ -130,7 +130,7 @@ distinguishes them.
 
 Use `forecast.areas_for_year(year, scenario=...)` to inspect area availability
 in a selected year. Do not reuse a current county assignment for every
-historical year. The artifact covers 2022–2035 and exposes `ce_trend` and
+historical year. The artifact covers 2022–2036 and exposes `ce_trend` and
 `zero_real` scenarios without an estimated-year opt-in. See
 [rolling forecasts](rolling-forecasts.md) for the distinction between published
 national inputs, modeled geography and conditional forward estimates.

@@ -33,6 +33,12 @@ def acs_document():
 def test_full_scenarios_preserve_every_original_value(forecast_document):
     scenarios = deepcopy(forecast_document["scenarios"])
     for scenario in scenarios.values():
+        # The original artifact ended in 2035; later years are additions.
+        scenario["years"] = {
+            year: entry
+            for year, entry in scenario["years"].items()
+            if int(year) <= 2035
+        }
         for entry in scenario["years"].values():
             for area in entry["geography_by_area"].values():
                 area.pop("series_breaks", None)
@@ -130,11 +136,11 @@ def test_stabilization_distinguishes_level_transition_and_donor_window(
     assert disclosure["first_constant_index_year"] == 2029
     assert disclosure["first_unchanged_transition_year"] == 2030
     assert disclosure["first_all_projected_window_year"] == 2030
-    assert disclosure["through_year"] == 2035
+    assert disclosure["through_year"] == 2036
     indices = acs_document["indices_by_year"]
     for year in range(2025, 2029):
         assert indices[str(year)] != indices["2029"]
-    for year in range(2030, 2036):
+    for year in range(2030, 2037):
         assert indices[str(year)] == indices["2029"]
         window = acs_document["diagnostics_by_year"][str(year)]["window"]
         assert window["observed_years"] == []

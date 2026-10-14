@@ -1,7 +1,7 @@
 # Forecast artifacts and archived releases
 
-Version 1.0.0 uses the canonical schema-2 forecast artifact for standalone
-calculations and current model adapters. Its default coverage is 2022–2035,
+Version 1.1.0 uses the canonical schema-2 forecast artifact for standalone
+calculations and current model adapters. Its default coverage is 2022–2036,
 with `ce_trend` and `zero_real` scenarios. Published 2025 national thresholds
 and BLS shelter/utilities shares remain exact inputs; modeled local rent
 indices and future values carry their own statuses.

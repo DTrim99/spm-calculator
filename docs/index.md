@@ -2,7 +2,7 @@
 
 Calculate Supplemental Poverty Measure thresholds from
 published 2025 national values and tenure housing shares, or conditional
-CE/ACS rolling forecasts through 2035. Standalone calculations read bundled,
+CE/ACS rolling forecasts through 2036. Standalone calculations read bundled,
 verified inputs offline.
 
 Install with `pip install spm-calculator==1.0.0.post1` or
@@ -15,7 +15,7 @@ and the companion paper is at
 
 Start with the [quickstart](quickstart.md) for Python and CLI examples. The
 [API reference](api.md) describes `SPMForecast`, `SPMUnit`, year-specific area
-assignment and source metadata. The default artifact covers 2022–2035;
+assignment and source metadata. The default artifact covers 2022–2036;
 unknown years and locations fail instead of triggering a runtime projection.
 
 A county identifies an assignment to an SPM estimation area for the selected

@@ -143,7 +143,7 @@ static shares rebased to each previous year, differing from the fixed
 describe the September 8 method and must not replace earlier commitments
 or be described as prospective evidence. This archived experiment made
 no new 2026 forecast. The separate [canonical rolling forecast](rolling-forecasts.md)
-now advances CE and ACS windows through 2035 under explicit conditional
+now advances CE and ACS windows through 2036 under explicit conditional
 assumptions and carries its own evaluation.
 
 Replication results carry a stable configuration fingerprint covering sample

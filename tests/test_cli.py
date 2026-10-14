@@ -24,11 +24,11 @@ def run(*args):
 def test_offline_cli_years_component_status_and_csv():
     info = run("info")
     assert info.returncode == 0, info.stderr
-    assert json.loads(info.stdout)["years"] == list(range(2022, 2036))
+    assert json.loads(info.stdout)["years"] == list(range(2022, 2037))
     result = run("export", "--format", "csv")
     assert result.returncode == 0, result.stderr
     rows = list(csv.DictReader(io.StringIO(result.stdout)))
-    assert len(rows) == 14 * 3
+    assert len(rows) == 15 * 3
     shares = [row for row in rows if row["year"] == "2025"]
     assert all(
         row["national_status"] == "published"
@@ -70,7 +70,7 @@ def test_offline_county_is_an_area_assignment_not_a_separate_estimate():
 def test_offline_invalid_selections_refuse_without_fallback():
     for args in (
         ("calculate", "--year", "2025", "--adults", "2"),
-        ("calculate", "--year", "2036", "--adults", "2", "--national"),
+        ("calculate", "--year", "2037", "--adults", "2", "--national"),
         ("calculate", "--year", "2025", "--adults", "2", "--county", "99999"),
         ("--scenario", "unknown", "info"),
         ("--release", "old.json", "info"),

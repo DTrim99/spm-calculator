@@ -13,7 +13,7 @@ from spm_calculator import SPMForecast, load_forecast
 forecast = load_forecast()
 assert isinstance(forecast, SPMForecast)
 print(forecast.forecast_id, forecast.content_sha256)
-print(forecast.years)  # 2022 through 2035
+print(forecast.years)  # 2022 through 2036
 print(forecast.default_scenario)  # ce_trend
 entry = forecast.entry(2025)
 print(entry["thresholds"]["renter"], entry["housing_shares"]["renter"])

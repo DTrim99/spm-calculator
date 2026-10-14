@@ -194,7 +194,7 @@ def test_application_preserves_all_source_tables_weights_and_receipts(
     assert receipt["composition"]["person_membership_inputs_sha256"]
 
 
-@pytest.mark.parametrize("year", range(2022, 2036))
+@pytest.mark.parametrize("year", range(2022, 2037))
 @pytest.mark.parametrize("scenario", ["ce_trend", "zero_real"])
 def test_every_artifact_year_scenario_tenure_matches_canonical(
     frame, forecast, year, scenario
@@ -391,7 +391,7 @@ def test_custom_person_columns_preserve_source_primitive(frame, forecast):
     assert prepared.persons[1]["independent_minor_role"] is True
 
 
-@pytest.mark.parametrize("year", [2021, 2036, 2025.0, True, "2025"])
+@pytest.mark.parametrize("year", [2021, 2037, 2025.0, True, "2025"])
 def test_unsupported_year_has_stable_error(frame, forecast, year):
     with pytest.raises(SPMInputError) as error:
         apply(frame, forecast, year=year)
