@@ -201,3 +201,48 @@ def test_integer_float_changes_are_not_hidden_by_python_equality(
     )
     with pytest.raises(ValueError, match="remaining document fields"):
         verifier.compare_forecasts(baseline, _reseal(current), calculate=False)
+
+
+def _sha256(path):
+    return hashlib.sha256((verifier.ROOT / path).read_bytes()).hexdigest()
+
+
+def test_committed_receipt_verifies_the_committed_forecast(baseline):
+    """The current receipt records the full check of this exact artifact."""
+    current_bytes = (verifier.ROOT / verifier.CURRENT).read_bytes()
+    receipt = json.loads((verifier.ROOT / verifier.RECEIPT).read_bytes())
+    assert receipt["kind"] == "horizon_extension_verification"
+    assert receipt["status"] == "all_exact_equality_checks_passed"
+    assert receipt["baseline_artifact"]["sha256"] == (
+        verifier.BASELINE_FILE_SHA256
+    )
+    assert receipt["final_artifact"]["sha256"] == (
+        hashlib.sha256(current_bytes).hexdigest()
+    )
+    for path, digest in {
+        **receipt["rebuilt_components"],
+        **receipt["extended_code"],
+    }.items():
+        assert _sha256(path) == digest
+    for key in ("previous_scientific_refresh", "audit_script"):
+        assert _sha256(receipt[key]["path"]) == receipt[key]["sha256"]
+
+    comparison = receipt["horizon_comparison"]
+    evidence = verifier.compare_forecasts(
+        baseline, json.loads(current_bytes), calculate=False
+    )
+    assert comparison["allowed_changes"] == evidence["allowed_changes"]
+    assert comparison["added_year_summary"] == evidence["added_year_summary"]
+    assert comparison["calculation_grid_executed"] is True
+    amounts = comparison["amount_comparison"]
+    assert amounts["retained_calculations"] == 2 * 14 * 349 * 3 * 8 * 9
+    assert amounts["added_year_calculations"] == 2 * 349 * 3 * 8 * 9
+    assert amounts["max_absolute_difference"] == 0
+    # The retained grid reproduces the September 9 artifact's calculations,
+    # whose digest the archived adaptation receipt recorded.
+    previous = json.loads(verifier.retained_bytes(verifier.RECEIPT))
+    assert amounts["current_sha256_big_endian_float64"] == (
+        previous["scientific_equivalence"]["amount_comparison"][
+            "original_sha256_big_endian_float64"
+        ]
+    )

@@ -1,166 +1,155 @@
 {
-  "artifact_sha256": {
-    "spm_calculator/data/current/acs_2021_normalization_receipt.json": "36a4320d7d1a382cc8b71d2c6b5074dc4d002998fa068461565258507fa4a80d",
-    "spm_calculator/data/current/acs_code_identity_adaptation.json": "b0bfbb6d87702ec06a96841b178c5645c755a042e01c3d5cabd8bad69e520396",
-    "spm_calculator/data/current/acs_normalized_products.json": "49b12d772d209f4d3f806769a30576f1ffeea52716561874e382e3b4600e1be5",
-    "spm_calculator/data/current/acs_rolling_forecast.json": "47ed3e6a6924994079fa2f1f5698021b3fab795d78b36a331de5b3ba067d1a78",
-    "spm_calculator/data/current/ce_replication_2019_2025.json": "d04e2a61552795f9d90e282045610774a4ff68f67b97067677358741f58a289c",
-    "spm_calculator/data/current/ce_rolling_forecast.json": "26b863a3e5ea3e23fb4fcd547ccd497e25625d55542b8711a4825239aebb4e21",
-    "spm_calculator/data/current/rolling_forecast_2026_09_09.json": "cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99"
-  },
+  "added_year": 2036,
   "audit_script": {
-    "path": "scripts/verify_provenance_equivalence.py",
-    "sha256": "871b7fae47117a5709b230f2b6fbac98b4008d1a231d578e48b610ca4a20c044"
+    "path": "scripts/verify_horizon_extension.py",
+    "sha256": "1f71787b49be4cc70a90d0403ea92e0c636cbbd168fb1fab817301c9a9a93e06"
   },
   "baseline_artifact": {
-    "assumption_sha256": "f4a92d547d1a5039701680a57fb02e368438aa5dd1a11e952351020450132983",
-    "content_sha256": "b9dbf5ae49697e3bf3abee2fa22b7429703412cb1e58478938a682a0dfddc821",
-    "path": "web/public/data/canonical/rolling-forecast-76ab8435f087f167ad01b8495ebd016415ba8086f32bfbd3dab961dcc8976c0a.json",
-    "sha256": "76ab8435f087f167ad01b8495ebd016415ba8086f32bfbd3dab961dcc8976c0a"
+    "assumption_sha256": "d81cf3b1a131fb386941e2e5c30792545f7dc965f6ba4c4dfb13e8ca95a3992d",
+    "content_sha256": "3d86d5c4c0423480e6b69b75d222ffa4a7a2639e4094df5ba2504af01be17173",
+    "path": "web/public/data/canonical/rolling-forecast-cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99.json",
+    "sha256": "cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99"
   },
-  "baseline_content_sha256": "b9dbf5ae49697e3bf3abee2fa22b7429703412cb1e58478938a682a0dfddc821",
-  "final_assumption_sha256": "d81cf3b1a131fb386941e2e5c30792545f7dc965f6ba4c4dfb13e8ca95a3992d",
-  "final_content_sha256": "3d86d5c4c0423480e6b69b75d222ffa4a7a2639e4094df5ba2504af01be17173",
-  "kind": "equivalent_code_adaptation_verification",
-  "normalized_cache_identity": {
-    "2021": {
-      "cache_path": "normalized/2021-11f0a6d4cbff51bf377f61e34b07184118a5ecf620868a48c96b0720971849e5.npz",
-      "columns": [
-        "record_id",
-        "source_vintage",
-        "cohort_year",
-        "source_year",
-        "puma_geoid",
-        "rent",
-        "weight",
-        "raw_gross_rent",
-        "adjhsg",
-        "projected",
-        "top_rent",
-        "top_electricity",
-        "top_gas",
-        "top_fuel",
-        "top_water",
-        "rent_lower_bound"
-      ],
-      "normalization_logic_sha256": "2c02fb82bba6992f4fa0db844781a4d7bb610cb6f3680b03d188daa1a49936ba",
-      "sha256": "f407c8677c70baa37d22fdc4b0780f459ac4db46f405868836f052f62d774041",
-      "source_sha256": [
-        "7a0f6d2d86990343bce760a2b679d26f19272a7518399a03ca7e19bf74e92b19"
-      ],
-      "topcodes_sha256": "71711e030f56a187e0787795de04e077f0cce91ac21d41ab28b7aa3ff7c231e4",
-      "valid_pumas_sha256": "3b81a64caf404041aa44811a7076ad0cae1f300588423227b1b089d37058da3b"
+  "extended_code": {
+    "scripts/build_acs_forecast.py": "7ef9da39dae328dd0bf3db28de252b0107ad4364085bca01639c5ccb7cebebcd",
+    "scripts/build_forecast_inputs.py": "0ec505b5102ffb75b9cc8c29ea77729e6189a62e3d02110932499959db43d78d",
+    "scripts/build_rolling_forecast.py": "330d3fd28038e43b7515d82c3cf7d0fc64b39278eb9795417e804fe908ecfc1f",
+    "spm_calculator/ce_forecast.py": "a89acf49b1dfb3848008336e50e43cc3e96c761085995f1447725645f366c8d4",
+    "spm_calculator/forecast_inputs.py": "b1c006497280b55061c56d133116f37a63d82316dcfb6ad71d0390774e59c811"
+  },
+  "final_artifact": {
+    "assumption_sha256": "6ef10c97d39a95720cce7993036b3db702b9f7c8c71a1e1ec37c104d85f18dfd",
+    "content_sha256": "335e6755dc8e0bd883e09b76c2bd53a5315683773e44d50085c7d6b8832b6291",
+    "path": "spm_calculator/data/current/rolling_forecast_2026_09_09.json",
+    "sha256": "53d2b4b32251d3afbcf62a76c0f843c2a9369b3565acf088d6729b3bd8069d1b"
+  },
+  "horizon_comparison": {
+    "added_year": 2036,
+    "added_year_summary": {
+      "ce_trend": {
+        "acs_window": {
+          "end": 2035,
+          "observed_cohort_years": [],
+          "observed_years": 0,
+          "projected_cohort_years": [
+            2031,
+            2032,
+            2033,
+            2034,
+            2035
+          ],
+          "projected_years": 5,
+          "start": 2031
+        },
+        "ce_window": {
+          "end": "2036Q1",
+          "observed_quarters": 0,
+          "projected_quarters": 20,
+          "start": "2031Q2"
+        },
+        "housing_shares": {
+          "owner_with_mortgage": 0.4252591056792482,
+          "owner_without_mortgage": 0.2988044184348856,
+          "renter": 0.4411839954666919
+        },
+        "rent_indices_equal_previous_year": true,
+        "threshold_growth_from_previous_year": {
+          "owner_with_mortgage": 0.031924553391916355,
+          "owner_without_mortgage": 0.031924553391916355,
+          "renter": 0.031924553391916355
+        },
+        "thresholds": {
+          "owner_with_mortgage": 58602.75543097015,
+          "owner_without_mortgage": 47860.746848011404,
+          "renter": 60388.65385359566
+        }
+      },
+      "zero_real": {
+        "acs_window": {
+          "end": 2035,
+          "observed_cohort_years": [],
+          "observed_years": 0,
+          "projected_cohort_years": [
+            2031,
+            2032,
+            2033,
+            2034,
+            2035
+          ],
+          "projected_years": 5,
+          "start": 2031
+        },
+        "ce_window": {
+          "end": "2036Q1",
+          "observed_quarters": 0,
+          "projected_quarters": 20,
+          "start": "2031Q2"
+        },
+        "housing_shares": {
+          "owner_with_mortgage": 0.42415367982996244,
+          "owner_without_mortgage": 0.29887412115895357,
+          "renter": 0.4466270382535945
+        },
+        "rent_indices_equal_previous_year": true,
+        "threshold_growth_from_previous_year": {
+          "owner_with_mortgage": 0.022575402728884253,
+          "owner_without_mortgage": 0.022575402728884253,
+          "renter": 0.02257540272888403
+        },
+        "thresholds": {
+          "owner_with_mortgage": 53621.13968857021,
+          "owner_without_mortgage": 43891.765899068596,
+          "renter": 55970.70571086209
+        }
+      }
     },
-    "2022": {
-      "cache_path": "normalized/2022-0db3a6b05c8dfc26ff84c1feaab1e8a1c66c9f1a69eb2a8bbd640b2efc97d92b.npz",
-      "columns": [
-        "record_id",
-        "source_vintage",
-        "cohort_year",
-        "source_year",
-        "puma_geoid",
-        "rent",
-        "weight",
-        "raw_gross_rent",
-        "adjhsg",
-        "projected",
-        "top_rent",
-        "top_electricity",
-        "top_gas",
-        "top_fuel",
-        "top_water",
-        "rent_lower_bound"
-      ],
-      "normalization_logic_sha256": "ff5fa220fa295f464d29fe682823433980ebd19059e2bab0260eec923575ecf5",
-      "sha256": "0aebe418e3bd70342cc4b2e72bcb883e3cea565906c1cafaa9bd21f452bd9a8f",
-      "source_sha256": [
-        "45e08155e78bbfff1e251d99d911070700baf615f0690c97e67790333728add5",
-        "b325a63784d834def25c07959777dd0c1602a0767c27ac1877718ae3f2376d41"
-      ],
-      "topcodes_sha256": "eacb03b68d083bc9431300bda7e76e897a9356bde9d508c1d38db205260875cd",
-      "valid_pumas_sha256": "e5849a3366acf7a25f7ac90dfb148c5b8352a1f365da6db07d53a4d786f81ce6"
-    },
-    "2023": {
-      "cache_path": "normalized/2023-3f41887ef77588d83d620202cdf4e6d77eef2e45a50e309fd1d990da9afb8e37.npz",
-      "columns": [
-        "record_id",
-        "source_vintage",
-        "cohort_year",
-        "source_year",
-        "puma_geoid",
-        "rent",
-        "weight",
-        "raw_gross_rent",
-        "adjhsg",
-        "projected",
-        "top_rent",
-        "top_electricity",
-        "top_gas",
-        "top_fuel",
-        "top_water",
-        "rent_lower_bound"
-      ],
-      "normalization_logic_sha256": "ff5fa220fa295f464d29fe682823433980ebd19059e2bab0260eec923575ecf5",
-      "sha256": "85db2bb76d0da444b985f91c487908373369b670d8e9f28b31d8f8583cce5adc",
-      "source_sha256": [
-        "2380c0ae7f062a42c016b494a26084ca0e24b75d07927a19ed1afc4529da0bf8"
-      ],
-      "topcodes_sha256": "eacb03b68d083bc9431300bda7e76e897a9356bde9d508c1d38db205260875cd",
-      "valid_pumas_sha256": "e5849a3366acf7a25f7ac90dfb148c5b8352a1f365da6db07d53a4d786f81ce6"
-    },
-    "2024": {
-      "cache_path": "normalized/2024-64f4bcc2d2db1cce3cbd87ee01b2acd1fe13b9c323c24075f25543019015ee0c.npz",
-      "columns": [
-        "record_id",
-        "source_vintage",
-        "cohort_year",
-        "source_year",
-        "puma_geoid",
-        "rent",
-        "weight",
-        "raw_gross_rent",
-        "adjhsg",
-        "projected",
-        "top_rent",
-        "top_electricity",
-        "top_gas",
-        "top_fuel",
-        "top_water",
-        "rent_lower_bound"
-      ],
-      "normalization_logic_sha256": "ff5fa220fa295f464d29fe682823433980ebd19059e2bab0260eec923575ecf5",
-      "sha256": "c4f146414d4b438cfc9b64dabd09d43334fe5b1235c4cca3aa5ca53822902996",
-      "source_sha256": [
-        "f3ff4545eab3da1cf4cbc5b245a926b67eb055fe95ac87fa2d5f1dd9ba95c23c"
-      ],
-      "topcodes_sha256": "eacb03b68d083bc9431300bda7e76e897a9356bde9d508c1d38db205260875cd",
-      "valid_pumas_sha256": "e5849a3366acf7a25f7ac90dfb148c5b8352a1f365da6db07d53a4d786f81ce6"
-    }
-  },
-  "previous_scientific_refresh": {
-    "path": "spm_calculator/data/provenance/ast-portability-2026-09-09/scientific_refresh_receipt.json",
-    "sha256": "ea431cf183c80c8c0446f614ba355bddc6a30714906460bf1e8df54cd332af54"
-  },
-  "provenance_adaptation": {
-    "path": "spm_calculator/data/current/acs_code_identity_adaptation.json",
-    "sha256": "b0bfbb6d87702ec06a96841b178c5645c755a042e01c3d5cabd8bad69e520396"
-  },
-  "raw_source_reparse_performed": false,
-  "schema_version": 1,
-  "scientific_component_rebuild_performed": false,
-  "scientific_equivalence": {
-    "allowed_provenance_changes": [
-      "content_sha256",
+    "allowed_changes": [
       "assumption_sha256",
-      "code_sha256/spm_calculator/acs_forecast_sources.py",
-      "assumptions/acs/generator_identity/spm_calculator/acs_forecast_sources.py",
+      "assumptions/acs/generator_identity/scripts/build_acs_forecast.py",
+      "assumptions/acs/generator_identity/spm_calculator/forecast_inputs.py",
+      "assumptions/acs/nominal_rent_growth_by_year/2036",
+      "assumptions/acs/price_growth_by_year/2036",
+      "assumptions/acs/price_inputs/forecast_source/annual_growth_by_year/2036",
+      "assumptions/acs/provenance_adaptation (not repeated)",
+      "assumptions/acs/puma_vintage_by_spm_year/2036",
+      "assumptions/acs/relative_index_stabilization/through_year",
+      "assumptions/ce/annual_cpi/CUUR0000SA0/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SAA/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SAF/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SAF11/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SAH1/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SAH2/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SEED/2036",
+      "assumptions/ce/annual_cpi/CUUR0000SEFV/2036",
+      "assumptions/ce/inflation_rates/2036",
+      "assumptions/ce/price_source/annual_growth_by_year/2036",
+      "assumptions/price_projections/2036",
+      "code_sha256/scripts/build_acs_forecast.py",
+      "code_sha256/scripts/build_forecast_inputs.py",
+      "code_sha256/scripts/build_rolling_forecast.py",
+      "code_sha256/spm_calculator/ce_forecast.py",
+      "code_sha256/spm_calculator/forecast_inputs.py",
+      "component_sha256/spm_calculator/data/current/acs_2021_source_inputs.json",
       "component_sha256/spm_calculator/data/current/acs_rolling_forecast.json",
-      "component_sha256/spm_calculator/data/current/acs_normalized_products.json",
-      "assumptions/acs/provenance_adaptation",
-      "sources/id=acs-code-identity-adaptation",
-      "sources/id=acs-normalized-products/sha256"
+      "component_sha256/spm_calculator/data/current/ce_rolling_forecast.json",
+      "component_sha256/spm_calculator/data/current/forecast_horizon_inputs.json",
+      "content_sha256",
+      "county_assignments/sha256",
+      "county_assignments/year_maps/2036",
+      "rent_sensitivity/index_difference_by_year/2036",
+      "rent_sensitivity/nominal_rent_growth_by_year/2036",
+      "rent_sensitivity/price_growth_by_year/2036",
+      "scenarios/ce_trend/years/2036",
+      "scenarios/zero_real/years/2036",
+      "sources/id=acs-2021-source-inputs/sha256",
+      "sources/id=acs-code-identity-adaptation (not repeated)",
+      "sources/id=ce-020/sha256",
+      "sources/id=forecast-horizon-inputs/sha256"
     ],
     "amount_comparison": {
+      "added_year": 2036,
+      "added_year_calculations": 150768,
+      "added_year_sha256_big_endian_float64": "547867b38a469c19ae77fc66c121159d56c2e92897c2019dcaad6e7646457586",
       "all_result_fields_equal_except": [
         "forecast_sha256"
       ],
@@ -179,6 +168,7 @@
         "ce_trend/2033": 349,
         "ce_trend/2034": 349,
         "ce_trend/2035": 349,
+        "ce_trend/2036": 349,
         "zero_real/2022": 349,
         "zero_real/2023": 349,
         "zero_real/2024": 349,
@@ -192,9 +182,9 @@
         "zero_real/2032": 349,
         "zero_real/2033": 349,
         "zero_real/2034": 349,
-        "zero_real/2035": 349
+        "zero_real/2035": 349,
+        "zero_real/2036": 349
       },
-      "calculations": 2110752,
       "composition_grid": {
         "adults": [
           1,
@@ -228,11 +218,11 @@
         "geographic_factor"
       ],
       "max_absolute_difference": 0,
-      "ordering": "scenario, year, area, tenure, adults, children ascending; fields in recorded order",
+      "ordering": "scenario, retained years then added year, area, tenure, adults, children ascending; fields in recorded order",
       "original_sha256_big_endian_float64": "aaf2d3d4f68f3d12fdf252165d547d8cf6a19c74a34475d6def6a99a1bd5d5a3",
       "resources": 40000,
-      "scenario_count": 2,
-      "years": [
+      "retained_calculations": 2110752,
+      "retained_years": [
         2022,
         2023,
         2024,
@@ -247,14 +237,44 @@
         2033,
         2034,
         2035
-      ]
+      ],
+      "scenario_count": 2
     },
     "calculation_grid_executed": true,
-    "complete_scenarios_sha256": "d5e542944d26a51418b2246b77b00d4e0814574b0f676a693e1475703eb041be",
-    "current_content_sha256": "3d86d5c4c0423480e6b69b75d222ffa4a7a2639e4094df5ba2504af01be17173",
-    "original_content_sha256": "b9dbf5ae49697e3bf3abee2fa22b7429703412cb1e58478938a682a0dfddc821",
-    "scientific_fields_exactly_equal": true,
+    "current_content_sha256": "335e6755dc8e0bd883e09b76c2bd53a5315683773e44d50085c7d6b8832b6291",
+    "original_content_sha256": "3d86d5c4c0423480e6b69b75d222ffa4a7a2639e4094df5ba2504af01be17173",
+    "retained_fields_exactly_equal": true,
+    "retained_scenarios_sha256": "d5e542944d26a51418b2246b77b00d4e0814574b0f676a693e1475703eb041be",
     "status": "all_exact_equality_checks_passed"
   },
+  "kind": "horizon_extension_verification",
+  "previous_scientific_refresh": {
+    "path": "spm_calculator/data/provenance/horizon-2036-extension/scientific_refresh_receipt.json",
+    "sha256": "b0a27cd88e8161c50b17805ef43399ec948c89a0d5e4a2a8d9e562159ee33db1"
+  },
+  "rebuilt_components": {
+    "spm_calculator/data/current/acs_2021_source_inputs.json": "1bd9a40d7d56895ded24424a0fd916aed8752afea45ca132044ae6696c330e56",
+    "spm_calculator/data/current/acs_rolling_forecast.json": "375e9d5eafe4039444df8b584dc3500f53e8a0ee39b8ef46573f28d947736dae",
+    "spm_calculator/data/current/ce_rolling_forecast.json": "2180b650ba351ab7e70faf95d5d8dd88a98863558a7e5eabc7d86bb4a231d725",
+    "spm_calculator/data/current/forecast_horizon_inputs.json": "3d20dd76d057553508eab0003efe4e57f1243123d0f2e38b9334e3b1b884a565"
+  },
+  "retained_years": [
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031,
+    2032,
+    2033,
+    2034,
+    2035
+  ],
+  "schema_version": 1,
+  "scientific_component_rebuild_performed": true,
   "status": "all_exact_equality_checks_passed"
 }

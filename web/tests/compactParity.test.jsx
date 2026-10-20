@@ -10,7 +10,7 @@ import {
 } from "../lib/forecastValidation";
 import { getRawEquivalenceScale } from "../src/components/CalculatorWorkbench";
 
-const YEARS = Array.from({ length: 14 }, (_, offset) => 2022 + offset);
+const YEARS = Array.from({ length: 15 }, (_, offset) => 2022 + offset);
 const TENURES = ["renter", "owner_with_mortgage", "owner_without_mortgage"];
 // Independent raw Betson reference values cover every branch of the UI helper.
 const HOUSEHOLDS = [

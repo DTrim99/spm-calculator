@@ -90,38 +90,49 @@ identities even if all amounts remain equal.
 
 ## Current artifact identity
 
-Versions 1.0.0 and 1.0.0.post1 use these pins:
+Version 1.1.0 uses these pins:
 
 | Identity | SHA-256 |
 | --- | --- |
-| Canonical content (`expected_sha256` / `forecast_content_sha256`) | `3d86d5c4c0423480e6b69b75d222ffa4a7a2639e4094df5ba2504af01be17173` |
-| Canonical file bytes | `cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99` |
-| Assumptions | `d81cf3b1a131fb386941e2e5c30792545f7dc965f6ba4c4dfb13e8ca95a3992d` |
+| Canonical content (`expected_sha256` / `forecast_content_sha256`) | `335e6755dc8e0bd883e09b76c2bd53a5315683773e44d50085c7d6b8832b6291` |
+| Canonical file bytes | `53d2b4b32251d3afbcf62a76c0f843c2a9369b3565acf088d6729b3bd8069d1b` |
+| Assumptions | `6ef10c97d39a95720cce7993036b3db702b9f7c8c71a1e1ec37c104d85f18dfd` |
 
-The [current canonical download](../web/public/data/canonical/rolling-forecast-cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99.json)
-has the file-byte digest above. These pins describe the published 1.0.0
-distribution and the unchanged data in 1.0.0.post1; each downstream bundle declares its
-own coordinated pins.
+The [current canonical download](../web/public/data/canonical/rolling-forecast-53d2b4b32251d3afbcf62a76c0f843c2a9369b3565acf088d6729b3bd8069d1b.json)
+has the file-byte digest above. Each downstream bundle declares its own
+coordinated pins.
 
-The September 9, 2026 Python AST portability adaptation changes source and
+Versions 1.0.0 through 1.0.1 cover 2022–2035 with content
+`3d86d5c4c0423480e6b69b75d222ffa4a7a2639e4094df5ba2504af01be17173`, file bytes
+`cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99` and
+assumptions `d81cf3b1a131fb386941e2e5c30792545f7dc965f6ba4c4dfb13e8ca95a3992d`.
+That artifact remains available as an
+[immutable download](../web/public/data/canonical/rolling-forecast-cc06784feb81f8c7935d4494cea0a9821a79af868ac50383da8be37c6dc14b99.json).
+
+Version 1.1.0 extends the horizon to 2036. The CE and ACS components are
+rebuilt from cached raw inputs and the forecast is reassembled. The
+[horizon receipt](../spm_calculator/data/current/scientific_refresh_receipt.json)
+records exact comparisons against the 1.0.x artifact. Every 2022–2035 field
+and all 2,110,752 retained calculations are unchanged. Only the 2036 entries,
+the extended code identities, the rebuilt components and the seals differ.
+The receipt also runs 150,768 calculations for 2036. The
+[extension archive](../spm_calculator/data/provenance/horizon-2036-extension/README.md)
+keeps the replaced component bytes and the previous receipt.
+
+The September 9, 2026 Python AST portability adaptation changed source and
 artifact identities while preserving all scientific values. The
 [adaptation receipt](../spm_calculator/data/current/acs_code_identity_adaptation.json)
-links the original and current source bytes, unchanged normalization-function
+links the original and adapted source bytes, unchanged normalization-function
 bytes and cache identities, and the
 [retained original evidence](../spm_calculator/data/provenance/ast-portability-2026-09-09/README.md).
 The earlier normalization receipt still records its original 616,858-record
-reparse. This adaptation performs no new raw-source parse or CE/ACS component
-calculation.
-
-The current
-[equivalence receipt](../spm_calculator/data/current/scientific_refresh_receipt.json)
-links that operation to the reassembled artifact and records new exact
-comparisons against the
-[original immutable download](../web/public/data/canonical/rolling-forecast-76ab8435f087f167ad01b8495ebd016415ba8086f32bfbd3dab961dcc8976c0a.json).
-Historical normalization, scientific-refresh and acceptance evidence retain
-their original identities and meaning. Downstream bundles must explicitly
-adopt the new content digest even though every scientific scenario and
-calculation value is unchanged.
+reparse. The 1.1.0 rebuild replaces the adapted ACS component. Tests now read
+the adapted bytes from the extension archive, and `adapt_acs_code_identity.py`
+no longer reproduces current files. Its
+[original immutable download](../web/public/data/canonical/rolling-forecast-76ab8435f087f167ad01b8495ebd016415ba8086f32bfbd3dab961dcc8976c0a.json)
+remains available. Historical normalization, scientific-refresh and
+acceptance evidence retain their original identities and meaning.
+Downstream bundles must explicitly adopt the new content digest.
 
 The active browser inputs are
 [`web/public/data/release_config.json`](../web/public/data/release_config.json).
@@ -129,20 +140,24 @@ Their `forecast.auditArtifact` identifies the current immutable canonical
 download by file SHA-256. Historical content-addressed downloads remain
 available; obsolete `/data/current/` routes are absent.
 
-Verify the adaptation, lightweight assembly and export without raw microdata:
+Verify the assembly without raw microdata, and repeat the horizon comparison:
 
 ```sh
-python scripts/adapt_acs_code_identity.py --check
 python scripts/build_rolling_forecast.py --check
-python scripts/adapt_acs_code_identity.py --finalize --check
+python scripts/verify_horizon_extension.py --output spm_calculator/data/current/scientific_refresh_receipt.json
+git diff --exit-code spm_calculator/data/current/scientific_refresh_receipt.json
 ```
 
-The committed browser export identifies the verified PyPI package 1.0.0.post1.
-Reproduce and verify the export with:
+`--no-calculate` skips the calculation grid and prints the field comparison.
+
+The committed browser export carries the 1.1.0 scientific inputs but keeps
+the verified PyPI package pin 1.0.0.post1 until 1.1.0 is promoted.
+`tests/test_web_config.py` checks that only the package fields differ from a
+fresh export. Once 1.1.0 is on PyPI, promote and verify the export with:
 
 ```sh
-python scripts/export_web_release.py --published-package-version 1.0.0.post1
-python scripts/export_web_release.py --published-package-version 1.0.0.post1 --check
+python scripts/export_web_release.py --published-package-version 1.1.0
+python scripts/export_web_release.py --published-package-version 1.1.0 --check
 ```
 
 The exporter requires the publication flag to match `pyproject.toml`. Omit the

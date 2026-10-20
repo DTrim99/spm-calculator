@@ -133,7 +133,8 @@ rises by $127.94 and its renter SU mean falls by $33.25. The formula
 subtracts the overall SU mean and adds the renter SU mean, so this housing
 adjustment offsets the increase in common spending. By
 2030, renter thresholds are $50,011.91 and $48,954.72 respectively; by 2035,
-they are $58,520.42 and $54,735.04. These are conditional research results
+they are $58,520.42 and $54,735.04; and in 2036, $60,388.65 and $55,970.71.
+These are conditional research results
 from the [canonical artifact](../spm_calculator/data/current/rolling_forecast_2026_09_09.json),
 not published BLS forecasts.
 
@@ -344,12 +345,13 @@ coverage, and reproduces the portable artifact without raw microdata:
 python scripts/build_rolling_forecast.py --check
 ```
 
-The committed browser export identifies the verified PyPI package 1.0.0.post1.
-Reproduce and verify the export with:
+The committed browser export carries the current scientific inputs and keeps
+the verified PyPI package pin 1.0.0.post1 until the next release is promoted.
+After 1.1.0 reaches PyPI, promote and verify the export with:
 
 ```sh
-python scripts/export_web_release.py --published-package-version 1.0.0.post1
-python scripts/export_web_release.py --published-package-version 1.0.0.post1 --check
+python scripts/export_web_release.py --published-package-version 1.1.0
+python scripts/export_web_release.py --published-package-version 1.1.0 --check
 ```
 
 For an unpublished development preview, omit `--published-package-version`
