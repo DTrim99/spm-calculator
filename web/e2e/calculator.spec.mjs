@@ -803,7 +803,7 @@ test("year chart exposes the breakdown by pointer, keyboard and touch", async ({
 }, testInfo) => {
   const chart = page.getByTestId("threshold-history-chart");
   await expect(chart).toBeVisible();
-  await expect(page.getByTestId("threshold-history-segment")).toHaveCount(13);
+  await expect(page.getByTestId("threshold-history-segment")).toHaveCount(14);
   await expect(
     page.getByTestId("threshold-history-values"),
   ).not.toHaveAttribute("open");
