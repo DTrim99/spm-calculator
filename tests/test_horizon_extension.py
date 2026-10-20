@@ -241,8 +241,8 @@ def test_committed_receipt_verifies_the_committed_forecast(baseline):
     # The retained grid reproduces the September 9 artifact's calculations,
     # whose digest the archived adaptation receipt recorded.
     previous = json.loads(verifier.retained_bytes(verifier.RECEIPT))
-    assert amounts["current_sha256_big_endian_float64"] == (
-        previous["scientific_equivalence"]["amount_comparison"][
-            "original_sha256_big_endian_float64"
-        ]
+    original = previous["scientific_equivalence"]["amount_comparison"]
+    assert (
+        amounts["current_sha256_big_endian_float64"]
+        == original["original_sha256_big_endian_float64"]
     )
