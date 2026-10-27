@@ -138,7 +138,9 @@ The component builders read raw microdata from external caches: CE PUMD
 under `~/.cache/spm-calculator/ce-pumd` and ACS PUMS under
 `~/.cache/spm-calculator/acs-pums`, or the path given with `--cache-dir`.
 Each builder checks every raw file against its pin. Use the `uv.lock`
-environment (`uv sync --frozen`). On Windows, check the repository out with
+environment (`uv sync --frozen`) on Python 3.12 or 3.13: the CE builder
+reproduces the committed bytes under those versions but not under 3.11. The
+1.1.0 rebuild used Python 3.13. On Windows, check the repository out with
 `core.autocrlf=false`, because the pins are of LF bytes. Run the builders in
 this order. Each later step pins the outputs of the earlier ones.
 
@@ -216,16 +218,8 @@ python scripts/verify_horizon_extension.py --check
 unless the committed receipt equals a fresh one. Without `--check` or
 `--output` it prints the receipt; `--no-calculate` skips the grid.
 
-The committed browser export is a local preview of 1.1.0: it names no PyPI
-package until 1.1.0 is published and the browser is promoted (#52). Reproduce
-and verify it with:
-
-```sh
-python scripts/export_web_release.py
-python scripts/export_web_release.py --check
-```
-
-Once 1.1.0 is on PyPI, promote and verify the export with:
+The committed browser export identifies the verified PyPI package 1.1.0.
+Reproduce and verify the export with:
 
 ```sh
 python scripts/export_web_release.py --published-package-version 1.1.0

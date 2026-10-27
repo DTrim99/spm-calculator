@@ -1,5 +1,17 @@
 # Canonical web performance
 
+## Package publication promotion — 2026-11-02
+
+The committed browser export identifies `packageDistribution.status`
+`published` and `publishedVersion` `1.1.0`, matching the verified PyPI
+package. It serves the 2022–2036 forecast (content `335e6755…`) and its
+pinned canonical download, both unchanged from the #51 local preview.
+Verify the export with:
+
+```sh
+python scripts/export_web_release.py --published-package-version 1.1.0 --check
+```
+
 ## Package publication promotion — 2026-09-13
 
 The committed browser export identifies `packageDistribution.status`

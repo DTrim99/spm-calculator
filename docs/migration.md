@@ -5,11 +5,12 @@ Version 1.0.0 is published on
 integrations ship in their own packages: `policyengine-us` 2.0 and the
 `policyengine` wrapper 6.0 are in progress.
 
-The standalone installation examples target the documentation update
-`1.0.0.post1`. It contains the same calculation code and bundled data as
-`1.0.0`. Existing downstream pins to `spm-calculator==1.0.0` continue selecting
-that distribution. Adopting the metadata update requires a deliberate pin and
-lockfile change; it does not require new scientific artifact hashes.
+The standalone installation examples target `1.1.0`, which extends the
+canonical forecast to 2036 without changing any 2022–2035 value. Its content
+digest differs from 1.0.x (see [SPM releases](spm-releases.md)). Existing
+downstream pins to `spm-calculator==1.0.0` or `1.0.0.post1` keep the 2022–2035
+forecast. Adopting 1.1.0 requires a deliberate pin and lockfile change, and the
+new forecast content digest.
 
 ## Public API replacement
 

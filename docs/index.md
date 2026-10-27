@@ -5,8 +5,8 @@ published 2025 national values and tenure housing shares, or conditional
 CE/ACS rolling forecasts through 2036. Standalone calculations read bundled,
 verified inputs offline.
 
-Install with `pip install spm-calculator==1.0.0.post1` or
-`uv pip install spm-calculator==1.0.0.post1` from
+Install with `pip install spm-calculator==1.1.0` or
+`uv pip install spm-calculator==1.1.0` from
 [PyPI](https://pypi.org/project/spm-calculator/). The calculator also
 runs in the browser at
 [policyengine.org/us/spm-calculator](https://policyengine.org/us/spm-calculator),

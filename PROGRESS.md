@@ -1,3 +1,30 @@
+# 2036 horizon and the 1.1.0 promotion — November 2, 2026
+
+## State
+
+Complete. #51 extended the canonical forecast to 2022–2036 without changing
+any 2022–2035 value, and its merge published `spm-calculator==1.1.0`. This
+change points the browser export at the verified package.
+
+## Done
+
+- PyPI publishes `spm-calculator==1.1.0`. The downloaded wheel
+  (`c528ec0f06eeb1188b7d6cf456ff3a9b73a0fd8856b3938358251cc5f9be83e8`,
+  9,881,340 bytes) and sdist
+  (`1be418c6a1baaba86f63c3287b38efecf7f94af563b864a73934ecbf60a01f38`) match
+  the registry. All 66 `spm_calculator` files in the wheel match merged commit
+  `fca37520c39d16e77540e03969d45c3082b40ada` byte for byte. A clean install
+  loads 2022–2036 with content digest
+  `335e6755dc8e0bd883e09b76c2bd53a5315683773e44d50085c7d6b8832b6291`.
+- The browser export identifies verified published version `1.1.0`.
+  Reproduce it with `python scripts/export_web_release.py
+  --published-package-version 1.1.0` and verify with `--check`.
+- The horizon receipt shows every 2022–2035 value and calculation unchanged.
+  The 1.1.0 wheel also ships #45. Downstream bundles adopt the new content
+  digest through their own pins.
+
+---
+
 # Methods paper embedded at /paper — September 14, 2026
 
 ## State

@@ -3,11 +3,11 @@
 Install the package with Python 3.9 or newer:
 
 ```sh
-pip install spm-calculator==1.0.0.post1
+pip install spm-calculator==1.1.0
 ```
 
-With uv, `uv pip install spm-calculator==1.0.0.post1`, or
-`uv add spm-calculator==1.0.0.post1` inside a uv project. To run the
+With uv, `uv pip install spm-calculator==1.1.0`, or
+`uv add spm-calculator==1.1.0` inside a uv project. To run the
 examples against this checkout instead, use `python -m pip install -e .`.
 
 The bundled artifact supports offline calculations without a Census API key.
@@ -83,8 +83,8 @@ from spm_calculator import SPMUnit, load_forecast
 
 forecast = load_forecast()
 units = [
-    SPMUnit("single-adult", 1, 0, "renter", 2035, geography_kind="national"),
-    SPMUnit("reference", 2, 2, "renter", 2035, geography_kind="national"),
+    SPMUnit("single-adult", 1, 0, "renter", 2036, geography_kind="national"),
+    SPMUnit("reference", 2, 2, "renter", 2036, geography_kind="national"),
 ]
 for scenario in ("ce_trend", "zero_real"):
     results = [forecast.calculate_unit(unit, scenario=scenario) for unit in units]
@@ -133,7 +133,7 @@ spm-calculator info
 spm-calculator verify
 spm-calculator calculate --year 2025 --adults 2 --children 2 --tenure renter --national
 spm-calculator --scenario ce_trend calculate --year 2026 --adults 2 --children 2 --county 06037 --county-vintage 2020
-spm-calculator --scenario zero_real calculate --year 2035 --adults 1 --children 0 --area 35620 --resources 30000
+spm-calculator --scenario zero_real calculate --year 2036 --adults 1 --children 0 --area 35620 --resources 30000
 spm-calculator areas --year 2022
 spm-calculator --scenario zero_real export --format csv
 ```

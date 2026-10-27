@@ -351,10 +351,8 @@ coverage, and reproduces the portable artifact without raw microdata:
 python scripts/build_rolling_forecast.py --check
 ```
 
-The committed browser export is a local preview of 1.1.0 until 1.1.0 reaches
-PyPI and the browser is promoted. Verify it with
-`python scripts/export_web_release.py --check`. After 1.1.0 reaches PyPI,
-promote and verify the export with:
+The committed browser export identifies the verified PyPI package 1.1.0.
+Reproduce and verify the export with:
 
 ```sh
 python scripts/export_web_release.py --published-package-version 1.1.0

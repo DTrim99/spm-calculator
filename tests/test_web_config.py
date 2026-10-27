@@ -74,17 +74,18 @@ def test_archived_nowcast_remains_separate_from_canonical_forecast(config):
 
 
 def test_committed_browser_export_matches_canonical_artifact(config):
-    # The export stays a local preview of this version until the package
-    # reaches PyPI and the browser is promoted (#52); it never names a
-    # published package whose bundled forecast differs from the one it serves.
-    assert CONFIG.read_bytes() == encode_config(config)
-    assert config["packageVersion"] == "1.1.0"
-    assert config["packageDistribution"] == {
-        "status": "local_preview",
+    # The export names the verified PyPI package, whose bundled forecast is
+    # the one it serves.
+    published = build_config(published_package_version="1.1.0")
+    assert CONFIG.read_bytes() == encode_config(published)
+    assert published["packageDistribution"] == {
+        "status": "published",
         "version": "1.1.0",
-        "publishedVersion": None,
-        "pypiUrl": None,
+        "publishedVersion": "1.1.0",
+        "pypiUrl": "https://pypi.org/project/spm-calculator/1.1.0/",
     }
+    assert config["packageVersion"] == "1.1.0"
+    assert config["packageDistribution"]["status"] == "local_preview"
     assert config["schemaVersion"] == 2
     assert config["forecast"]["schemaVersion"] == 2
     assert config["availableYears"] == list(YEARS)
