@@ -40,11 +40,11 @@ selected area's rent input can be modeled.
 Python 3.9 or newer:
 
 ```sh
-pip install spm-calculator==1.0.0.post1
+pip install spm-calculator==1.1.0
 ```
 
-With uv, `uv pip install spm-calculator==1.0.0.post1`, or
-`uv add spm-calculator==1.0.0.post1` inside a uv project. To work on the
+With uv, `uv pip install spm-calculator==1.1.0`, or
+`uv add spm-calculator==1.1.0` inside a uv project. To work on the
 package itself, install this checkout instead with
 `python -m pip install -e .`.
 

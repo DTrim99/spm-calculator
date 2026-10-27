@@ -990,7 +990,7 @@ describe("canonical calculator controls and shared layout", () => {
     expect(footer.querySelector('a[href*="pypi.org"]')).toBeNull();
     expect(
       footer.querySelector(
-        'a[href="https://github.com/PolicyEngine/spm-calculator/pull/36"]',
+        'a[href="https://github.com/PolicyEngine/spm-calculator/pull/51"]',
       ),
     ).not.toBeNull();
   });
@@ -1045,7 +1045,7 @@ describe("canonical calculator controls and shared layout", () => {
     expect(footer).not.toHaveTextContent(
       /local build|local preview|preview Python API/i,
     );
-    expect(footer.querySelector('a[href*="/pull/36"]')).toBeNull();
+    expect(footer.querySelector('a[href*="/pull/51"]')).toBeNull();
     rerender(
       <CalculatorWorkbench data={{ ...data, packageVersion: "0.4.0" }} />,
     );

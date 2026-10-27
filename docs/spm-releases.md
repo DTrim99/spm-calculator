@@ -113,11 +113,50 @@ Version 1.1.0 extends the horizon to 2036. The CE and ACS components are
 rebuilt from cached raw inputs and the forecast is reassembled. The
 [horizon receipt](../spm_calculator/data/current/scientific_refresh_receipt.json)
 records exact comparisons against the 1.0.x artifact. Every 2022–2035 field
-and all 2,110,752 retained calculations are unchanged. Only the 2036 entries,
-the extended code identities, the rebuilt components and the seals differ.
-The receipt also runs 150,768 calculations for 2036. The
+and all 2,110,752 retained calculations are unchanged. Only these differ:
+- the 2036 entries;
+- the extended code identities;
+- the rebuilt components;
+- the seals;
+- the relative-index stabilization disclosure, which now runs through 2036;
+- the September 9 adaptation link, which a fresh ACS build does not repeat.
+
+The receipt also runs 150,768 calculations for 2036. It records that the
+rebuild used the same external source pins and normalized ACS products as
+1.0.x. The commands, the ACS cache mode and each builder's `--check` result
+are attested by the operator in
+[the release pull request](https://github.com/PolicyEngine/spm-calculator/pull/51).
+The
 [extension archive](../spm_calculator/data/provenance/horizon-2036-extension/README.md)
 keeps the replaced component bytes and the previous receipt.
+
+### Rebuilding for a new horizon
+
+The component builders read raw microdata from external caches: CE PUMD
+under `~/.cache/spm-calculator/ce-pumd` and ACS PUMS under
+`~/.cache/spm-calculator/acs-pums`, or the path given with `--cache-dir`.
+Each builder checks every raw file against its pin. Use the `uv.lock`
+environment (`uv sync --frozen`). On Windows, check the repository out with
+`core.autocrlf=false`, because the pins are of LF bytes. Run the builders in
+this order. Each later step pins the outputs of the earlier ones.
+
+```sh
+python scripts/build_forecast_inputs.py
+python scripts/build_acs_2021_inputs.py --cache-dir <acs-pums cache>
+python scripts/build_ce_forecast.py --cache-dir <ce-pumd cache> --output spm_calculator/data/current/ce_rolling_forecast.json
+python scripts/build_acs_forecast.py --cache-dir <acs-pums cache> --output spm_calculator/data/current/acs_rolling_forecast.json
+python scripts/build_rolling_forecast.py
+python scripts/verify_horizon_extension.py --output spm_calculator/data/current/scientific_refresh_receipt.json
+```
+
+Each builder's `--check` form repeats its step and fails if the committed
+output differs. `build_forecast_inputs.py` and `build_rolling_forecast.py`
+need no raw data. `build_acs_2021_inputs.py` comes before the ACS forecast,
+because the 2021 bundle pins the county-assignment digest. Skipping it fails
+with "Historical county assignment changed".
+
+2036 is the last year of CBO's February 2026 file. A 2037 horizon needs a
+newer CBO vintage, and that vintage also changes the 2026–2036 rates.
 
 The September 9, 2026 Python AST portability adaptation changed source and
 artifact identities while preserving all scientific values. The
@@ -144,16 +183,23 @@ Verify the assembly without raw microdata, and repeat the horizon comparison:
 
 ```sh
 python scripts/build_rolling_forecast.py --check
-python scripts/verify_horizon_extension.py --output spm_calculator/data/current/scientific_refresh_receipt.json
-git diff --exit-code spm_calculator/data/current/scientific_refresh_receipt.json
+python scripts/verify_horizon_extension.py --check
 ```
 
-`--no-calculate` skips the calculation grid and prints the field comparison.
+`verify_horizon_extension.py --check` runs the full calculation grid and fails
+unless the committed receipt equals a fresh one. Without `--check` or
+`--output` it prints the receipt; `--no-calculate` skips the grid.
 
-The committed browser export carries the 1.1.0 scientific inputs but keeps
-the verified PyPI package pin 1.0.0.post1 until 1.1.0 is promoted.
-`tests/test_web_config.py` checks that only the package fields differ from a
-fresh export. Once 1.1.0 is on PyPI, promote and verify the export with:
+The committed browser export is a local preview of 1.1.0: it names no PyPI
+package until 1.1.0 is published and the browser is promoted (#52). Reproduce
+and verify it with:
+
+```sh
+python scripts/export_web_release.py
+python scripts/export_web_release.py --check
+```
+
+Once 1.1.0 is on PyPI, promote and verify the export with:
 
 ```sh
 python scripts/export_web_release.py --published-package-version 1.1.0

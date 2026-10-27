@@ -78,6 +78,12 @@ REBUILT_COMPONENTS = (
 # A fresh ACS build does not repeat the equivalent-code adaptation link.
 # The retained normalized-products manifest still carries it.
 ADAPTATION_SOURCE = "acs-code-identity-adaptation"
+NORMALIZED_PRODUCTS = (
+    "spm_calculator/data/current/acs_normalized_products.json"
+)
+# The operator's commands, cache mode and builder --check output, which the
+# artifacts cannot show, are recorded here.
+REBUILD_RECORD = "PolicyEngine/spm-calculator#51"
 AMOUNT_FIELDS = (
     "threshold",
     "housing_portion",
@@ -485,6 +491,43 @@ def _link(path):
     return {"path": path, "sha256": hashlib.sha256(data).hexdigest()}
 
 
+def _external_sources(document):
+    return {
+        source["id"]: source
+        for source in document["sources"]
+        if source["id"] != ADAPTATION_SOURCE
+        and source.get("package_path", source.get("path"))
+        not in REBUILT_INPUTS
+    }
+
+
+def rebuild_facts(original, current):
+    """Record what the two artifacts show about the component rebuild.
+
+    The rebuild used the same external sources and normalized ACS products as
+    the retained artifact. Which commands ran, the ACS cache mode and each
+    builder's --check result are operator attested in REBUILD_RECORD.
+    """
+    before, after = _external_sources(original), _external_sources(current)
+    _require(
+        canonical_bytes(before) == canonical_bytes(after),
+        "External source pins changed in the rebuild",
+    )
+    normalized = original["component_sha256"][NORMALIZED_PRODUCTS]
+    _require(
+        current["component_sha256"][NORMALIZED_PRODUCTS] == normalized,
+        "Normalized ACS products changed in the rebuild",
+    )
+    return {
+        "external_source_pins_unchanged": True,
+        "external_source_count": len(after),
+        "acs_normalized_products_unchanged": True,
+        "acs_normalized_products_sha256": normalized,
+        "operator_attested": "commands, ACS cache mode, builder --check output",
+        "operator_record": REBUILD_RECORD,
+    }
+
+
 def build_receipt(original_bytes, current_bytes, *, calculate=True):
     original, current = json.loads(original_bytes), json.loads(current_bytes)
     comparison = compare_forecasts(original, current, calculate=calculate)
@@ -492,7 +535,7 @@ def build_receipt(original_bytes, current_bytes, *, calculate=True):
         "schema_version": 1,
         "kind": "horizon_extension_verification",
         "status": comparison["status"],
-        "scientific_component_rebuild_performed": True,
+        "scientific_component_rebuild": rebuild_facts(original, current),
         "added_year": ADDED_YEAR,
         "retained_years": list(RETAINED_YEARS),
         "baseline_artifact": {
@@ -520,13 +563,18 @@ def build_receipt(original_bytes, current_bytes, *, calculate=True):
 
 
 def main():
+    """Compare the committed artifact with the retained one (both under ROOT)."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--original", type=Path, default=ROOT / BASELINE)
-    parser.add_argument("--current", type=Path, default=ROOT / CURRENT)
-    parser.add_argument(
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
         "--output",
         type=Path,
         help=f"Write the receipt (normally {RECEIPT}) instead of printing it",
+    )
+    mode.add_argument(
+        "--check",
+        action="store_true",
+        help=f"Fail unless the committed {RECEIPT} equals a fresh receipt",
     )
     parser.add_argument(
         "--no-calculate",
@@ -534,18 +582,27 @@ def main():
         help="Skip the exhaustive calculation grid",
     )
     args = parser.parse_args()
-    original_bytes = args.original.read_bytes()
+    if args.check and args.no_calculate:
+        parser.error("--check compares the full receipt, grid included")
+    original_bytes = (ROOT / BASELINE).read_bytes()
     _require(
         hashlib.sha256(original_bytes).hexdigest() == BASELINE_FILE_SHA256,
         "Original artifact file does not match the immutable baseline pin",
     )
     receipt = build_receipt(
         original_bytes,
-        args.current.read_bytes(),
+        (ROOT / CURRENT).read_bytes(),
         calculate=not args.no_calculate,
     )
     encoded = (json.dumps(receipt, indent=2, sort_keys=True) + "\n").encode()
-    if args.output is None:
+    if args.check:
+        if (ROOT / RECEIPT).read_bytes() != encoded:
+            raise SystemExit(
+                f"{RECEIPT} differs from a fresh verification; "
+                "regenerate it with --output"
+            )
+        print(f"{RECEIPT} matches a fresh verification")
+    elif args.output is None:
         print(encoded.decode(), end="")
     else:
         args.output.write_bytes(encoded)

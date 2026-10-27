@@ -166,6 +166,19 @@ def test_published_web_export_reproduces_exact_bundled_bytes(tmp_path):
     config = json.loads(
         (ROOT / "web/public/data/release_config.json").read_text()
     )
+    if config["packageDistribution"]["status"] == "local_preview":
+        # A local preview names this checkout's version and no PyPI package,
+        # so the plain export reproduces it.
+        subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "scripts/export_web_release.py"),
+                "--check",
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+        return
     published_version = config["packageVersion"]
     (tmp_path / "pyproject.toml").write_text(
         f'[project]\nversion = "{published_version}"\n'

@@ -129,25 +129,28 @@ def test_comparison_requires_the_pinned_pre_extension_artifact(extended):
         verifier.compare_documents(extended, extended)
 
 
+REMAINING = "remaining document fields"
+
+
 @pytest.mark.parametrize(
-    "mutation",
+    "mutation,message",
     [
-        "retained_threshold",
-        "retained_rent_index",
-        "retained_price_path",
-        "second_added_year",
-        "other_code_identity",
-        "unchanged_extended_code",
-        "other_component",
-        "source_removed",
-        "stabilization_year",
-        "validation_metric",
-        "real_growth_rate",
-        "added_year_status",
+        ("retained_threshold", REMAINING),
+        ("retained_rent_index", REMAINING),
+        ("retained_price_path", REMAINING),
+        ("second_added_year", REMAINING),
+        ("other_code_identity", "Undeclared code identity change"),
+        ("unchanged_extended_code", "Expected the extended code identity"),
+        ("other_component", REMAINING),
+        ("source_removed", "Undeclared source removal"),
+        ("stabilization_year", "Stabilization disclosure"),
+        ("validation_metric", REMAINING),
+        ("real_growth_rate", REMAINING),
+        ("added_year_status", "housing_share_status differs"),
     ],
 )
 def test_resealed_unapproved_changes_are_rejected(
-    baseline, extended, mutation
+    baseline, extended, mutation, message
 ):
     current = copy.deepcopy(extended)
     years = current["scenarios"]["ce_trend"]["years"]
@@ -185,7 +188,7 @@ def test_resealed_unapproved_changes_are_rejected(
         current["scenarios"]["ce_trend"]["real_growth_rate"] += 1e-9
     elif mutation == "added_year_status":
         years[ADDED]["housing_share_status"] = "published_anchor"
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match=message):
         verifier.compare_forecasts(baseline, _reseal(current), calculate=False)
 
 

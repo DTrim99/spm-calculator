@@ -330,12 +330,18 @@ These commands regenerate outputs; use them only when intentionally rebuilding
 the scientific artifact, not to run a threshold calculation.
 
 ```sh
+python scripts/build_forecast_inputs.py
+python scripts/build_acs_2021_inputs.py
 python scripts/build_ce_forecast.py --output spm_calculator/data/current/ce_rolling_forecast.json
 python scripts/build_acs_forecast.py --output spm_calculator/data/current/acs_rolling_forecast.json
 python scripts/build_rolling_forecast.py
 ```
 
-Both scientific builders support `--cache-dir` and an offline `--check` that
+Run them in this order; each step pins the outputs of the earlier ones. The
+[rebuild procedure](spm-releases.md#rebuilding-for-a-new-horizon) gives the
+caches, the environment and the horizon receipt that follows.
+
+The scientific builders support `--cache-dir` and an offline `--check` that
 repeats the calculations from cached raw inputs. The assembly check below
 uses committed component results, verifies their scientific code and package
 input hashes, checks the official CPI receipt and required evaluation
@@ -345,9 +351,10 @@ coverage, and reproduces the portable artifact without raw microdata:
 python scripts/build_rolling_forecast.py --check
 ```
 
-The committed browser export carries the current scientific inputs and keeps
-the verified PyPI package pin 1.0.0.post1 until the next release is promoted.
-After 1.1.0 reaches PyPI, promote and verify the export with:
+The committed browser export is a local preview of 1.1.0 until 1.1.0 reaches
+PyPI and the browser is promoted. Verify it with
+`python scripts/export_web_release.py --check`. After 1.1.0 reaches PyPI,
+promote and verify the export with:
 
 ```sh
 python scripts/export_web_release.py --published-package-version 1.1.0
