@@ -231,7 +231,7 @@ export default function CalculatorWorkbench({ data }) {
     : PREVIEW_URL;
   const packageLabel = publishedPackage
     ? `spm-calculator ${packageVersion}`
-    : "Preview Python API: calculator PR36";
+    : "Preview Python API: release PR 51";
   const ceSurveyWindow = selectedEntry?.ce_window
     ? `${selectedEntry.ce_window.start}–${selectedEntry.ce_window.end}`
     : "Unavailable";

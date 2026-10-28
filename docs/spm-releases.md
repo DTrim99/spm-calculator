@@ -121,11 +121,13 @@ and all 2,110,752 retained calculations are unchanged. Only these differ:
 - the relative-index stabilization disclosure, which now runs through 2036;
 - the September 9 adaptation link, which a fresh ACS build does not repeat.
 
-The receipt also runs 150,768 calculations for 2036. It records that the
-rebuild used the same external source pins and normalized ACS products as
-1.0.x. The commands, the ACS cache mode and each builder's `--check` result
-are attested by the operator in
-[the release pull request](https://github.com/PolicyEngine/spm-calculator/pull/51).
+The receipt also runs 150,768 calculations for 2036. It records two things
+the rebuild kept from 1.0.x: all 56 source pins (raw caches and packaged
+inputs) and the normalized-products manifest (`49b12d77…`). The operator
+attests the rest in
+[the release pull request](https://github.com/PolicyEngine/spm-calculator/pull/51):
+the commands, each builder's `--check` result, and whether the ACS build
+reused the retained normalized products or reparsed raw PUMS.
 The
 [extension archive](../spm_calculator/data/provenance/horizon-2036-extension/README.md)
 keeps the replaced component bytes and the previous receipt.
@@ -153,10 +155,34 @@ Each builder's `--check` form repeats its step and fails if the committed
 output differs. `build_forecast_inputs.py` and `build_rolling_forecast.py`
 need no raw data. `build_acs_2021_inputs.py` comes before the ACS forecast,
 because the 2021 bundle pins the county-assignment digest. Skipping it fails
-with "Historical county assignment changed".
+with "Historical county assignment changed". The scientific checks in full:
 
-2036 is the last year of CBO's February 2026 file. A 2037 horizon needs a
-newer CBO vintage, and that vintage also changes the 2026–2036 rates.
+```sh
+python scripts/build_acs_2021_inputs.py --cache-dir <acs-pums cache> --check
+python scripts/build_ce_forecast.py --cache-dir <ce-pumd cache> --output spm_calculator/data/current/ce_rolling_forecast.json --check
+python scripts/build_acs_forecast.py --cache-dir <acs-pums cache> --output spm_calculator/data/current/acs_rolling_forecast.json --check
+```
+
+**Filling the caches.** Each component's `sources` say what the caches must
+hold:
+- The CE component lists the 11 interview bundles (`intrvw14.zip` to
+  `intrvw24.zip`), with the hash of each member file.
+- The ACS component gives each PUMS file's `url` and `cache_path`.
+
+bls.gov blocks scripted downloads of the CE bundles. The ACS PUMS files are
+about 4.3 GB. The ACS loader reuses `normalized/<vintage>-<fingerprint>.npz`
+and its receipt when both are in the cache. Without them it reparses raw
+PUMS. The operator record for 1.1.0 states which path its build took.
+
+**Moving the horizon again.**
+- The end year appears in several places:
+  - `projection_rates` in `spm_calculator/forecast_inputs.py`;
+  - `build_ce_forecast` in `spm_calculator/ce_forecast.py`;
+  - `end_spm_year` and the PUMA-vintage range in `scripts/build_acs_forecast.py`;
+  - the year ranges in `scripts/build_forecast_inputs.py` and `scripts/build_rolling_forecast.py`;
+  - the probes in `scripts/validate_axiom_integration.py`.
+- `scripts/verify_horizon_extension.py` pins `ADDED_YEAR`, `RETAINED_YEARS`, the baseline download and the files a rebuild replaces. A new extension needs its own pins and provenance archive.
+- 2036 is the last year of CBO's February 2026 file. A 2037 horizon needs a newer CBO vintage, and that vintage also changes the 2026–2036 rates.
 
 The September 9, 2026 Python AST portability adaptation changed source and
 artifact identities while preserving all scientific values. The

@@ -988,11 +988,11 @@ describe("canonical calculator controls and shared layout", () => {
     expect(footer).toHaveTextContent(/local build|local preview/i);
     expect(footer).toHaveTextContent("0.3.0");
     expect(footer.querySelector('a[href*="pypi.org"]')).toBeNull();
-    expect(
-      footer.querySelector(
-        'a[href="https://github.com/PolicyEngine/spm-calculator/pull/51"]',
-      ),
-    ).not.toBeNull();
+    const preview = footer.querySelector(
+      'a[href="https://github.com/PolicyEngine/spm-calculator/pull/51"]',
+    );
+    expect(preview).not.toBeNull();
+    expect(preview).toHaveTextContent("Preview Python API: release PR 51");
   });
 
   it.each(["", "/us/spm-calculator"])(

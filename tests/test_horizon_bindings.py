@@ -219,6 +219,44 @@ def test_receipt_builder_reproduces_the_committed_receipt(monkeypatch):
     ):
         assert amounts[key] == pinned[key]
     assert amounts["retained_calculations"] == 0
+    # The committed retained grid must say that nothing moved.
+    assert (
+        pinned["original_sha256_big_endian_float64"]
+        == pinned["current_sha256_big_endian_float64"]
+    )
+    assert pinned["exact_field_comparisons"] == pinned[
+        "retained_calculations"
+    ] * len(pinned["fields"])
+    for key in (
+        "all_result_fields_equal_except",
+        "scenario_count",
+        "resources",
+        "ordering",
+        "max_absolute_difference",
+    ):
+        assert amounts[key] == pinned[key]
+
+
+@pytest.mark.parametrize(
+    "change,message",
+    [
+        ("source", "External source pins changed"),
+        ("normalized", "Normalized ACS products changed"),
+    ],
+)
+def test_rebuild_facts_reject_a_changed_external_input(
+    current, change, message
+):
+    baseline = json.loads((verifier.ROOT / verifier.BASELINE).read_bytes())
+    changed = copy.deepcopy(current)
+    digest = hashlib.sha256(b"changed").hexdigest()
+    if change == "source":
+        source = next(s for s in changed["sources"] if s["id"] == "ce-000")
+        source["sha256"] = digest
+    else:
+        changed["component_sha256"][verifier.NORMALIZED_PRODUCTS] = digest
+    with pytest.raises(ValueError, match=message):
+        verifier.rebuild_facts(baseline, changed)
 
 
 def test_calculation_grid_rejects_a_retained_amount_change(current):
