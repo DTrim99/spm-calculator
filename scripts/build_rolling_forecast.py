@@ -306,12 +306,12 @@ def assemble(ce, acs, *, checks, component_sha256):
         raise ValueError("Forecast information date mismatch")
     validation = validate_evaluations(ce, acs, official_areas)
     code = _verify_component_inputs(ce, acs)
-    expected_years = {str(y) for y in range(2022, 2036)}
+    expected_years = {str(y) for y in range(2022, 2037)}
     if set(acs["indices_by_year"]) != expected_years or set(
         ce["scenarios"]
     ) != set(SCENARIOS):
         raise ValueError(
-            "Forecast requires both scenarios and all 2022–2035 years"
+            "Forecast requires both scenarios and all 2022–2036 years"
         )
     scenarios = {}
     for identity in SCENARIOS:

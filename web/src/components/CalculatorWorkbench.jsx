@@ -57,7 +57,7 @@ const TENURE_LABELS = {
 
 const PYPI_URL = "https://pypi.org/project/spm-calculator/";
 const GITHUB_URL = "https://github.com/PolicyEngine/spm-calculator";
-const PREVIEW_URL = `${GITHUB_URL}/pull/36`;
+const PREVIEW_URL = `${GITHUB_URL}/pull/51`;
 
 function fmtCurrency(value, fractionDigits = 0) {
   if (!Number.isFinite(value)) return "Unavailable";
@@ -231,7 +231,7 @@ export default function CalculatorWorkbench({ data }) {
     : PREVIEW_URL;
   const packageLabel = publishedPackage
     ? `spm-calculator ${packageVersion}`
-    : "Preview Python API: calculator PR36";
+    : "Preview Python API: release PR 51";
   const ceSurveyWindow = selectedEntry?.ce_window
     ? `${selectedEntry.ce_window.start}–${selectedEntry.ce_window.end}`
     : "Unavailable";

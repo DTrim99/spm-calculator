@@ -1,7 +1,7 @@
 # Methodology
 
-Version 1.0 combines published national SPM thresholds and housing shares for
-2022–2025 with conditional CE/ACS rolling forecasts for 2026–2035.
+Version 1.1 combines published national SPM thresholds and housing shares for
+2022–2025 with conditional CE/ACS rolling forecasts for 2026–2036.
 `load_forecast()` reads the bundled schema 2 artifact offline. It does not
 require an estimated-year opt-in or retrieve missing inputs. The
 PolicyEngine, Microcosm and Axiom adapters ship inside this package; their
@@ -156,7 +156,7 @@ exact BLS reproduction. The [September 8 CE experiment](current-ce-replication.m
 quantifies selected sample-policy sensitivities, while preserving its
 original receipt and tables.
 
-For 2026–2035, the current estimator advances each twenty-quarter window
+For 2026–2036, the current estimator advances each twenty-quarter window
 using same-season observed donors. It anchors national levels and housing
 shares to published BLS 2025 inputs. `ce_trend` applies a declared
 half-shrunk near-median real-expenditure trend; `zero_real` holds donor real

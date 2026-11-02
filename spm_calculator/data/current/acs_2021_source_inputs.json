@@ -11831,8 +11831,8 @@
       "puma_geoid": "5600500"
     }
   ],
-  "content_sha256": "68ad07454b98daf4ef1b7bae7719f98909d8898ed81af69653c8385382679556",
-  "county_assignment_sha256": "1233a3f4632506427a216a6dce808c50eec8d5c91f5854fc0697454f03dcdd3b",
+  "content_sha256": "65775121b57227cfc667ab08b4e4685ff3886a60bdc11282ce8f1cee15db20af",
+  "county_assignment_sha256": "7bcfd3f2e541ade8b051f3b3c5e7657be0c675e005295e68234a676a566d2b7c",
   "generator_sha256": "82fa6edbbd90dc670204514c61a12475145d8d2976478a71e04fdba92047a31b",
   "geography_method": {
     "county_lookup_vintage": 2020,

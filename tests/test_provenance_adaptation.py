@@ -13,6 +13,7 @@ from pathlib import Path
 import pytest
 
 from scripts import adapt_acs_code_identity as adaptation
+from scripts.verify_horizon_extension import retained_bytes
 from spm_calculator.acs_forecast_sources import normalization_logic_sha256
 from spm_calculator.release import canonical_bytes
 
@@ -56,8 +57,10 @@ def originals():
 
 @pytest.fixture(scope="module")
 def current():
+    # The adaptation's outputs as it left them. The 2036 horizon rebuild
+    # replaced some of these files; their exact bytes are retained.
     return {
-        name: json.loads((CURRENT / filename).read_bytes())
+        name: json.loads(retained_bytes(adaptation.CURRENT + filename))
         for name, filename in {
             "operation": "acs_code_identity_adaptation.json",
             "manifest": "acs_normalized_products.json",
@@ -117,7 +120,7 @@ def test_adaptation_reproduces_current_outputs_offline(monkeypatch):
     first = adaptation.build_adaptation()
     assert first == adaptation.build_adaptation()
     for relative, data in first.items():
-        assert data == (ROOT / relative).read_bytes()
+        assert data == retained_bytes(relative)
 
 
 def test_operation_links_real_original_and_current_source_bytes(
@@ -307,7 +310,7 @@ def test_new_verification_receipt_binds_current_artifacts_and_historical_run(
         adaptation.OPERATION,
     }
     for path, expected in receipt["artifact_sha256"].items():
-        assert sha256((ROOT / path).read_bytes()) == expected
+        assert sha256(retained_bytes(path)) == expected
     for vintage, identity in receipt["normalized_cache_identity"].items():
         assert identity == {
             key: value

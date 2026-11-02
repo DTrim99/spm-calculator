@@ -153,7 +153,7 @@ national fallback or legacy release opt-in path.
 
 `export_build_spec(forecast, years=..., scenario=...)` works without installing
 core. It exports actual dated RuleSpec YAML inside an `axiom/build-spec/v0`
-JSON source closure. Omitted `years` selects the forecast's full 2022–2035
+JSON source closure. Omitted `years` selects the forecast's full 2022–2036
 coverage; omitted `scenario` selects `forecast.default_scenario`.
 
 The source binds the current forecast content hash, source and component
@@ -239,7 +239,7 @@ accuracy, population representativeness, legal validity or full PolicyEngine
 parity. The [source validation](validation.md) and
 [rolling forecast assumptions](rolling-forecasts.md) describe the separate
 scientific evidence and its limits. In particular, published 2025 national
-thresholds and housing shares do not make conditional 2026–2035 forecasts
+thresholds and housing shares do not make conditional 2026–2036 forecasts
 published official estimates.
 
 ## Run and retain validation
@@ -262,7 +262,7 @@ calculations are comparison oracles only.
 The script retains full-year source specs and bundles for both scenarios,
 full native build identities and capability responses, actual source/binary
 hashes, synthetic Frames, requests, complete receipts, unit results and input
-provenance. `validation.json` records endpoint probes for 2022, 2025 and 2035,
+provenance. `validation.json` records endpoint probes for 2022, 2025 and 2036,
 all tenures, native multi-unit membership, independent minors, explicit source
 roles, unchanged typed weights and native traces. It also retains national and
 decimal boundary probes, input error parity, rejection outside the declared

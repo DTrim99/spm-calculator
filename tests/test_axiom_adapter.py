@@ -224,7 +224,7 @@ def assert_canonical_results(forecast, frame, result, kwargs):
 def test_portable_export_binds_current_forecast_and_declared_domain(forecast):
     spec = export_build_spec(
         forecast,
-        years=[2022, 2025, 2035],
+        years=[2022, 2025, 2036],
         scenario="zero_real",
         max_adults=3,
         max_children=4,
@@ -236,7 +236,7 @@ def test_portable_export_binds_current_forecast_and_declared_domain(forecast):
     identity = json.loads(source.splitlines()[0][len(SOURCE_HEADER) :])
     assert identity["forecast_sha256"] == forecast.content_sha256
     assert identity["forecast_id"] == forecast.forecast_id
-    assert identity["years"] == [2022, 2025, 2035]
+    assert identity["years"] == [2022, 2025, 2036]
     assert identity["scenario"] == "zero_real"
     assert identity["composition_domain"] == {
         "min_adults": 1,
@@ -245,12 +245,12 @@ def test_portable_export_binds_current_forecast_and_declared_domain(forecast):
         "max_children": 4,
     }
     assert '"format": "rulespec/v1"' in source
-    assert '"effective_to": "2035-12-31"' in source
+    assert '"effective_to": "2036-12-31"' in source
     assert "count_where(member_of_spm_unit, is_measurement_adult)" in source
     assert "age >= 18 or (age >= 15 and independent_minor_role)" in source
     assert str(equivalence_factor(3, 4)) in source
     assert (
-        str(forecast.entry(2035, scenario="zero_real")["thresholds"]["renter"])
+        str(forecast.entry(2036, scenario="zero_real")["thresholds"]["renter"])
         in source
     )
 
@@ -320,7 +320,7 @@ def test_invalid_exports_are_rejected(forecast, kwargs):
 
 
 @pytest.mark.parametrize("scenario", ["ce_trend", "zero_real"])
-@pytest.mark.parametrize("year", range(2022, 2036))
+@pytest.mark.parametrize("year", range(2022, 2037))
 def test_actual_native_all_years_tenures_and_scenarios(
     adapter, bundles, forecast, frame_factory, year, scenario
 ):

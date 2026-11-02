@@ -1,7 +1,7 @@
 version: 1
 project:
   title: SPM Calculator
-  description: Published national SPM inputs and conditional CE/ACS forecasts for supported areas, 2022–2035
+  description: Published national SPM inputs and conditional CE/ACS forecasts for supported areas, 2022–2036
   keywords:
     - poverty
     - SPM

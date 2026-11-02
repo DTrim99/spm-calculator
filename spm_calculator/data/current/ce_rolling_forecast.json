@@ -32,7 +32,8 @@
         "2032": 380.4529430699365,
         "2033": 389.0383427281018,
         "2034": 397.817480612821,
-        "2035": 406.79634862800816
+        "2035": 406.79634862800816,
+        "2036": 415.97994002692496
       },
       "CUUR0000SAA": {
         "2005": 119.542,
@@ -65,7 +66,8 @@
         "2032": 155.17547021508912,
         "2033": 158.67720006948366,
         "2034": 162.25794999968983,
-        "2035": 165.92016392557807
+        "2035": 165.92016392557807,
+        "2036": 169.66587844704046
       },
       "CUUR0000SAF": {
         "2005": 191.167,
@@ -98,7 +100,8 @@
         "2032": 397.7949785841466,
         "2033": 406.77172310765627,
         "2034": 415.9510369504123,
-        "2035": 425.33918514290684
+        "2035": 425.33918514290684,
+        "2036": 434.9413885438833
       },
       "CUUR0000SAF11": {
         "2005": 189.783,
@@ -131,7 +134,8 @@
         "2032": 370.19071230977306,
         "2033": 378.5445318104834,
         "2034": 387.0868636972747,
-        "2035": 395.8235382501288
+        "2035": 395.8235382501288,
+        "2036": 404.7594140356973
       },
       "CUUR0000SAH1": {
         "2005": 224.425,
@@ -164,7 +168,8 @@
         "2032": 490.61593405257173,
         "2033": 501.68730029964814,
         "2034": 513.0085031236622,
-        "2035": 524.5872694290553
+        "2035": 524.5872694290553,
+        "2036": 536.4300383028618
       },
       "CUUR0000SAH2": {
         "2005": 179.042,
@@ -197,7 +202,8 @@
         "2032": 392.44287781114093,
         "2033": 401.29884544230686,
         "2034": 410.3546569399897,
-        "2035": 419.6164930423292
+        "2035": 419.6164930423292,
+        "2036": 429.0895043644417
       },
       "CUUR0000SEED": {
         "2005": 94.85,
@@ -230,7 +236,8 @@
         "2032": 111.02802471322485,
         "2033": 113.53351187736136,
         "2034": 116.09553789340464,
-        "2035": 118.71585138564046
+        "2035": 118.71585138564046,
+        "2036": 121.39590954097365
       },
       "CUUR0000SEFV": {
         "2005": 193.417,
@@ -263,7 +270,8 @@
         "2032": 451.871404146685,
         "2033": 462.0684512963044,
         "2034": 472.49560512814156,
-        "2035": 483.1599823437084
+        "2035": 483.1599823437084,
+        "2036": 494.0675135275981
       }
     },
     "classification": "conditional_rolling_window_research_scenarios",
@@ -285,7 +293,8 @@
       "2032": 0.02257372697332216,
       "2033": 0.02256625901981013,
       "2034": 0.022566253555256655,
-      "2035": 0.022570320442821146
+      "2035": 0.022570320442821146,
+      "2036": 0.02257540272888403
     },
     "latest_observed_quarter": "2025Q1",
     "monetary_columns": [
@@ -330,7 +339,8 @@
         "2032": 0.02257372697332216,
         "2033": 0.02256625901981013,
         "2034": 0.022566253555256655,
-        "2035": 0.022570320442821146
+        "2035": 0.022570320442821146,
+        "2036": 0.02257540272888403
       },
       "cbo_index_levels": {
         "2023": 304.704,
@@ -31305,11 +31315,11 @@
   },
   "code_sha256": {
     "scripts/build_ce_forecast.py": "7f8e541bfd51854209c342f993f57bbb3a5a6bdf9f9bb87312d44843c55d0ad4",
-    "spm_calculator/ce_forecast.py": "5345e483df9a2156985407b6e0c2c04053e1edad33ae764ab1f7f9021af8e961",
+    "spm_calculator/ce_forecast.py": "a89acf49b1dfb3848008336e50e43cc3e96c761085995f1447725645f366c8d4",
     "spm_calculator/ce_threshold.py": "4efbe2b03f6b1f4eb2911ab0f79f5151bd655cc1e5addf42f5c4540ace1f852f",
     "spm_calculator/equivalence_scale.py": "95c797adca4811b0a2c4202e8471f6cd46fcd259bf46b34da74588ab08b41326",
     "spm_calculator/fcsuti_cpi.py": "cf8fbe9103846d83a280bcd4f13b9ddd91e8baa94e2668b9ef288c7cc980a5fc",
-    "spm_calculator/forecast_inputs.py": "54cf632fa515ab82ee6958c898e4154237dd79b5075ee59c8c1593891a95068f",
+    "spm_calculator/forecast_inputs.py": "b1c006497280b55061c56d133116f37a63d82316dcfb6ad71d0390774e59c811",
     "spm_calculator/published_thresholds.py": "bbed3fb2c1658e86172917148f986383c86ba673be1055d9688e8a53600ae2ba"
   },
   "default_scenario": "ce_trend",
@@ -39371,6 +39381,519 @@
             "projected_quarters": 20,
             "start": "2030Q2"
           }
+        },
+        "2036": {
+          "donor_quarters": [
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.1917168531920515,
+              "projected": true,
+              "real_factor": 1.0657816274364367,
+              "rows": 4673,
+              "scale_factor": 1.2701099272384537,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2031Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.1917168531920515,
+              "projected": true,
+              "real_factor": 1.0657816274364367,
+              "rows": 4612,
+              "scale_factor": 1.2701099272384537,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2031Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.1917168531920515,
+              "projected": true,
+              "real_factor": 1.0657816274364367,
+              "rows": 4601,
+              "scale_factor": 1.2701099272384537,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2031Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.1817400691114157,
+              "projected": true,
+              "real_factor": 1.0657816274364367,
+              "rows": 4602,
+              "scale_factor": 1.259476854064412,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.2186183440655154,
+              "projected": true,
+              "real_factor": 1.0755258017850509,
+              "rows": 4673,
+              "scale_factor": 1.3106554715710343,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.2186183440655154,
+              "projected": true,
+              "real_factor": 1.0755258017850509,
+              "rows": 4612,
+              "scale_factor": 1.3106554715710343,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.2186183440655154,
+              "projected": true,
+              "real_factor": 1.0755258017850509,
+              "rows": 4601,
+              "scale_factor": 1.3106554715710343,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2084075216050725,
+              "projected": true,
+              "real_factor": 1.0755258017850509,
+              "rows": 4602,
+              "scale_factor": 1.2996734685573816,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.2461180012639903,
+              "projected": true,
+              "real_factor": 1.085359064677971,
+              "rows": 4673,
+              "scale_factor": 1.3524854683302672,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.2461180012639903,
+              "projected": true,
+              "real_factor": 1.085359064677971,
+              "rows": 4612,
+              "scale_factor": 1.3524854683302672,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.2461180012639903,
+              "projected": true,
+              "real_factor": 1.085359064677971,
+              "rows": 4601,
+              "scale_factor": 1.3524854683302672,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2356767521356917,
+              "projected": true,
+              "real_factor": 1.085359064677971,
+              "rows": 4602,
+              "scale_factor": 1.3411529639423072,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.274238216040283,
+              "projected": true,
+              "real_factor": 1.095282230629433,
+              "rows": 4673,
+              "scale_factor": 1.3956504756178705,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.274238216040283,
+              "projected": true,
+              "real_factor": 1.095282230629433,
+              "rows": 4612,
+              "scale_factor": 1.3956504756178705,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.274238216040283,
+              "projected": true,
+              "real_factor": 1.095282230629433,
+              "rows": 4601,
+              "scale_factor": 1.3956504756178705,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2635663723951387,
+              "projected": true,
+              "real_factor": 1.095282230629433,
+              "rows": 4602,
+              "scale_factor": 1.3839617949052883,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.3029981808968008,
+              "projected": true,
+              "real_factor": 1.1052961216005728,
+              "rows": 4673,
+              "scale_factor": 1.4401988357978355,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.3029981808968008,
+              "projected": true,
+              "real_factor": 1.1052961216005728,
+              "rows": 4612,
+              "scale_factor": 1.4401988357978355,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.3029981808968008,
+              "projected": true,
+              "real_factor": 1.1052961216005728,
+              "rows": 4601,
+              "scale_factor": 1.4401988357978355,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2920918921266342,
+              "projected": true,
+              "real_factor": 1.1052961216005728,
+              "rows": 4602,
+              "scale_factor": 1.4281441571191145,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2036Q1"
+            }
+          ],
+          "housing_share_status": "modeled",
+          "housing_shares": {
+            "owner_with_mortgage": 0.4252591056792482,
+            "owner_without_mortgage": 0.2988044184348856,
+            "renter": 0.4411839954666919
+          },
+          "national_status": "research_forecast",
+          "raw_ce_housing_shares": {
+            "owner_with_mortgage": 0.45270170595809217,
+            "owner_without_mortgage": 0.34257266054857327,
+            "renter": 0.4635429143056112
+          },
+          "records": {
+            "interpretation": "Original quarter plus row position; repeated interviews and synthetic copies are not independent samples",
+            "rows": 92440,
+            "unique_original_interview_rows": 18488
+          },
+          "replication": {
+            "classification": "research_replication_with_approximations",
+            "construction": {
+              "annualization": "quarter4",
+              "approximations": [
+                "annual CPI by collection year instead of BLS quarterly treatment",
+                "80 percent allocation to combined GROCER summary for redesigned rows",
+                "home internet and BLS in-kind benefit imputations omitted"
+              ],
+              "cpi_component_weights": {
+                "apparel": 0.051135801091783714,
+                "food": 0.34167412142798587,
+                "shelter": 0.4849822541610822,
+                "telephone": 0.03880597492417198,
+                "utilities": 0.08340184839497627
+              },
+              "cpi_input_mode": "explicit_pinned_series",
+              "inflation_factors": {
+                "2031": 1.1180624709775955,
+                "2032": 1.0933807915121259,
+                "2033": 1.069251778911809,
+                "2034": 1.045655257245422,
+                "2035": 1.0225754027288843,
+                "2036": 1.0
+              },
+              "mortgage_principal": "include",
+              "reference_family": {
+                "adults": 2,
+                "children": 2
+              }
+            },
+            "estimation": {
+              "band_fallback": false,
+              "band_fcsuti_max": 60111.49022113638,
+              "band_fcsuti_min": 55974.82305966784,
+              "band_rows": 1407,
+              "band_weight_sum": 46719805.116,
+              "bls_percentile_code_parity": "unverified",
+              "fcsuti_mean": 58003.971899862336,
+              "median_share": 0.82,
+              "percentile_convention": "midpoint_cdf_inclusive_47_53",
+              "su_mean": 31190.13095190017,
+              "tenures": {
+                "owner_with_mortgage": {
+                  "pooled_fallback": false,
+                  "rows": 701,
+                  "su_mean": 31774.940897919885,
+                  "weight_sum": 23569347.489
+                },
+                "owner_without_mortgage": {
+                  "pooled_fallback": false,
+                  "rows": 148,
+                  "su_mean": 20017.12286452012,
+                  "weight_sum": 4565788.408
+                },
+                "renter": {
+                  "pooled_fallback": false,
+                  "rows": 558,
+                  "su_mean": 33193.39512283445,
+                  "weight_sum": 18584669.218999997
+                }
+              }
+            },
+            "methodology_config": {
+              "annualization": "quarter4",
+              "cpi_input_mode": "explicit_pinned_series",
+              "implementation": "ce-fmli-annual-cpi-research-v1",
+              "median_share": 0.82,
+              "mortgage_principal": "include",
+              "percentile_convention": "midpoint_cdf_inclusive_47_53",
+              "tenure_policy": "exclude_5_6_code3_mortgage",
+              "youth_policy": "exclude_unresolved"
+            },
+            "methodology_id": "ce-fmli-research-v1:9b0ac2584036d8cf22989b08b14bde56b986c438c987abac56f633432fd3ce28",
+            "sample": {
+              "approximations": [
+                "PERSLT18 used as child count; dependent/nondependent teen classification unresolved",
+                "Tenure 3/5/6 treatment is an explicit research sample policy"
+              ],
+              "exclusions": {
+                "no_children": {
+                  "rows": 68870,
+                  "weight_sum": 1933609375.9499998
+                },
+                "tenure_5": {
+                  "rows": 290,
+                  "weight_sum": 10434461.56
+                },
+                "tenure_6": {
+                  "rows": 0,
+                  "weight_sum": 0.0
+                },
+                "unresolved_youth": {
+                  "rows": 0,
+                  "weight_sum": 0.0
+                }
+              },
+              "included": {
+                "rows": 23280,
+                "weight_sum": 778415123.05
+              },
+              "raw": {
+                "rows": 92440,
+                "weight_sum": 2722458960.56
+              },
+              "tenure_3": {
+                "rows": 0,
+                "weight_sum": 0.0
+              },
+              "tenure_5": {
+                "rows": 290,
+                "weight_sum": 10434461.56
+              },
+              "tenure_6": {
+                "rows": 0,
+                "weight_sum": 0.0
+              },
+              "tenure_policy": "exclude_5_6_code3_mortgage",
+              "unresolved_youth": {
+                "records": [],
+                "rows": 0,
+                "weight_sum": 0.0
+              },
+              "weight_semantics": "CE FINLWT21 survey weight summed over CU interviews; not unique population counts",
+              "with_children": {
+                "rows": 23570,
+                "weight_sum": 788849584.61
+              },
+              "youth_policy": "exclude_unresolved"
+            },
+            "target_year": 2036,
+            "thresholds": {
+              "owner_with_mortgage": 57555.4525052007,
+              "owner_without_mortgage": 47914.0417178129,
+              "renter": 58718.58496963065
+            },
+            "uncertainty": {
+              "reason": "Sampling and imputation uncertainty not estimated",
+              "status": "unavailable"
+            }
+          },
+          "thresholds": {
+            "owner_with_mortgage": 58602.75543097015,
+            "owner_without_mortgage": 47860.746848011404,
+            "renter": 60388.65385359566
+          },
+          "window": {
+            "end": "2036Q1",
+            "observed_quarters": 0,
+            "projected_quarters": 20,
+            "start": "2031Q2"
+          }
         }
       }
     },
@@ -46648,6 +47171,519 @@
             "projected_quarters": 20,
             "start": "2030Q2"
           }
+        },
+        "2036": {
+          "donor_quarters": [
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.1917168531920515,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4673,
+              "scale_factor": 1.1917168531920515,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2031Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.1917168531920515,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4612,
+              "scale_factor": 1.1917168531920515,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2031Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.1917168531920515,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4601,
+              "scale_factor": 1.1917168531920515,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2031Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.1817400691114157,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4602,
+              "scale_factor": 1.1817400691114157,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.2186183440655154,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4673,
+              "scale_factor": 1.2186183440655154,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.2186183440655154,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4612,
+              "scale_factor": 1.2186183440655154,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.2186183440655154,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4601,
+              "scale_factor": 1.2186183440655154,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2032Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2084075216050725,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4602,
+              "scale_factor": 1.2084075216050725,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.2461180012639903,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4673,
+              "scale_factor": 1.2461180012639903,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.2461180012639903,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4612,
+              "scale_factor": 1.2461180012639903,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.2461180012639903,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4601,
+              "scale_factor": 1.2461180012639903,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2033Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2356767521356917,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4602,
+              "scale_factor": 1.2356767521356917,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.274238216040283,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4673,
+              "scale_factor": 1.274238216040283,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.274238216040283,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4612,
+              "scale_factor": 1.274238216040283,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.274238216040283,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4601,
+              "scale_factor": 1.274238216040283,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2034Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2635663723951387,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4602,
+              "scale_factor": 1.2635663723951387,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q1"
+            },
+            {
+              "donor": "2024Q2",
+              "nominal_price_factor": 1.3029981808968008,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4673,
+              "scale_factor": 1.3029981808968008,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli242.csv",
+                "member_sha256": "3b3b432f2b82e89999266b74b66545848d1feb5be231e62c3e7a5e4386133116",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q2"
+            },
+            {
+              "donor": "2024Q3",
+              "nominal_price_factor": 1.3029981808968008,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4612,
+              "scale_factor": 1.3029981808968008,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli243.csv",
+                "member_sha256": "d3226b68530e71dcdb61a0e57bb5a1745885f24b2ffd29fd798e49f02516c3b3",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q3"
+            },
+            {
+              "donor": "2024Q4",
+              "nominal_price_factor": 1.3029981808968008,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4601,
+              "scale_factor": 1.3029981808968008,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli244.csv",
+                "member_sha256": "5fe2c2db2d8bf184fce90c4d54a19c9198c7664d41dfc6cf3808e013bd7f5229",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2035Q4"
+            },
+            {
+              "donor": "2025Q1",
+              "nominal_price_factor": 1.2920918921266342,
+              "projected": true,
+              "real_factor": 1.0,
+              "rows": 4602,
+              "scale_factor": 1.2920918921266342,
+              "source": {
+                "bundle_path": "intrvw24.zip",
+                "bundle_sha256": "421ec90c2b8469c10f91eac27988f65f5d09fcfa9944e5069bb00b5460677f26",
+                "bundle_year": 2024,
+                "member": "intrvw24/fmli251.csv",
+                "member_sha256": "28410a98aadbc92c1fa31fbdd80b4d3f38fbdba670ed56152d85796e2ac934cf",
+                "url": "https://www.bls.gov/cex/pumd/data/csv/intrvw24.zip"
+              },
+              "target": "2036Q1"
+            }
+          ],
+          "housing_share_status": "modeled",
+          "housing_shares": {
+            "owner_with_mortgage": 0.42415367982996244,
+            "owner_without_mortgage": 0.29887412115895357,
+            "renter": 0.4466270382535945
+          },
+          "national_status": "research_forecast",
+          "raw_ce_housing_shares": {
+            "owner_with_mortgage": 0.4515249453406269,
+            "owner_without_mortgage": 0.3426525731809116,
+            "renter": 0.4692618069718377
+          },
+          "records": {
+            "interpretation": "Original quarter plus row position; repeated interviews and synthetic copies are not independent samples",
+            "rows": 92440,
+            "unique_original_interview_rows": 18488
+          },
+          "replication": {
+            "classification": "research_replication_with_approximations",
+            "construction": {
+              "annualization": "quarter4",
+              "approximations": [
+                "annual CPI by collection year instead of BLS quarterly treatment",
+                "80 percent allocation to combined GROCER summary for redesigned rows",
+                "home internet and BLS in-kind benefit imputations omitted"
+              ],
+              "cpi_component_weights": {
+                "apparel": 0.051135801072153646,
+                "food": 0.34167412140979586,
+                "shelter": 0.484982254213859,
+                "telephone": 0.03880597492104011,
+                "utilities": 0.08340184838315148
+              },
+              "cpi_input_mode": "explicit_pinned_series",
+              "inflation_factors": {
+                "2031": 1.1180624709775953,
+                "2032": 1.0933807915121259,
+                "2033": 1.0692517789118092,
+                "2034": 1.0456552572454216,
+                "2035": 1.022575402728884,
+                "2036": 1.0
+              },
+              "mortgage_principal": "include",
+              "reference_family": {
+                "adults": 2,
+                "children": 2
+              }
+            },
+            "estimation": {
+              "band_fallback": false,
+              "band_fcsuti_max": 55335.91110998435,
+              "band_fcsuti_min": 51633.703049219206,
+              "band_rows": 1385,
+              "band_weight_sum": 46731419.838,
+              "bls_percentile_code_parity": "unverified",
+              "fcsuti_mean": 53451.564778332264,
+              "median_share": 0.82,
+              "percentile_convention": "midpoint_cdf_inclusive_47_53",
+              "su_mean": 28917.161402452366,
+              "tenures": {
+                "owner_with_mortgage": {
+                  "pooled_fallback": false,
+                  "rows": 683,
+                  "su_mean": 28998.28894883497,
+                  "weight_sum": 23178296.216000002
+                },
+                "owner_without_mortgage": {
+                  "pooled_fallback": false,
+                  "rows": 137,
+                  "su_mean": 18361.431410750516,
+                  "weight_sum": 4251136.977
+                },
+                "renter": {
+                  "pooled_fallback": false,
+                  "rows": 565,
+                  "su_mean": 31144.572320113282,
+                  "weight_sum": 19301986.645
+                }
+              }
+            },
+            "methodology_config": {
+              "annualization": "quarter4",
+              "cpi_input_mode": "explicit_pinned_series",
+              "implementation": "ce-fmli-annual-cpi-research-v1",
+              "median_share": 0.82,
+              "mortgage_principal": "include",
+              "percentile_convention": "midpoint_cdf_inclusive_47_53",
+              "tenure_policy": "exclude_5_6_code3_mortgage",
+              "youth_policy": "exclude_unresolved"
+            },
+            "methodology_id": "ce-fmli-research-v1:9b0ac2584036d8cf22989b08b14bde56b986c438c987abac56f633432fd3ce28",
+            "sample": {
+              "approximations": [
+                "PERSLT18 used as child count; dependent/nondependent teen classification unresolved",
+                "Tenure 3/5/6 treatment is an explicit research sample policy"
+              ],
+              "exclusions": {
+                "no_children": {
+                  "rows": 68870,
+                  "weight_sum": 1933609375.9499998
+                },
+                "tenure_5": {
+                  "rows": 290,
+                  "weight_sum": 10434461.56
+                },
+                "tenure_6": {
+                  "rows": 0,
+                  "weight_sum": 0.0
+                },
+                "unresolved_youth": {
+                  "rows": 0,
+                  "weight_sum": 0.0
+                }
+              },
+              "included": {
+                "rows": 23280,
+                "weight_sum": 778415123.05
+              },
+              "raw": {
+                "rows": 92440,
+                "weight_sum": 2722458960.56
+              },
+              "tenure_3": {
+                "rows": 0,
+                "weight_sum": 0.0
+              },
+              "tenure_5": {
+                "rows": 290,
+                "weight_sum": 10434461.56
+              },
+              "tenure_6": {
+                "rows": 0,
+                "weight_sum": 0.0
+              },
+              "tenure_policy": "exclude_5_6_code3_mortgage",
+              "unresolved_youth": {
+                "records": [],
+                "rows": 0,
+                "weight_sum": 0.0
+              },
+              "weight_semantics": "CE FINLWT21 survey weight summed over CU interviews; not unique population counts",
+              "with_children": {
+                "rows": 23570,
+                "weight_sum": 788849584.61
+              },
+              "youth_policy": "exclude_unresolved"
+            },
+            "target_year": 2036,
+            "thresholds": {
+              "owner_with_mortgage": 52662.86432991268,
+              "owner_without_mortgage": 43940.641148683426,
+              "renter": 54422.816694360896
+            },
+            "uncertainty": {
+              "reason": "Sampling and imputation uncertainty not estimated",
+              "status": "unavailable"
+            }
+          },
+          "thresholds": {
+            "owner_with_mortgage": 53621.13968857021,
+            "owner_without_mortgage": 43891.765899068596,
+            "renter": 55970.70571086209
+          },
+          "window": {
+            "end": "2036Q1",
+            "observed_quarters": 0,
+            "projected_quarters": 20,
+            "start": "2031Q2"
+          }
         }
       }
     }
@@ -47405,7 +48441,7 @@
     {
       "kind": "horizon_inputs",
       "path": "spm_calculator/data/current/forecast_horizon_inputs.json",
-      "sha256": "a4e127bf31afa6555547dd2f602d9dd87a6846952ec48c58a7f2798ab4930055"
+      "sha256": "3d20dd76d057553508eab0003efe4e57f1243123d0f2e38b9334e3b1b884a565"
     }
   ]
 }

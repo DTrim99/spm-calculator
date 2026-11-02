@@ -249,7 +249,7 @@ test("guided setup retains answers and allows direct editing after results", asy
     page.getByRole("button", { name: "2025", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "2035 (forecast)", exact: true }),
+    page.getByRole("button", { name: "2036 (forecast)", exact: true }),
   ).toBeVisible();
   await page.screenshot({
     path: testInfo.outputPath("guided-year-unselected.png"),
@@ -663,7 +663,7 @@ test("annual SPM-area menus and published versus modeled geography are explicit"
   await expect(page.getByLabel("Geography type", { exact: true })).toHaveCount(
     0,
   );
-  for (const value of [2022, 2024, 2025, 2035]) {
+  for (const value of [2022, 2024, 2025, 2036]) {
     await year.selectOption(String(value));
     await page.getByRole("combobox", { name: "Search SPM areas" }).click();
     const actual = await page
@@ -745,7 +745,7 @@ test("future years, real spending, and household controls update real results", 
     .locator("span")
     .nth(1);
   const factor2025 = await factor.textContent();
-  for (let value = 2026; value <= 2035; value++) {
+  for (let value = 2026; value <= 2036; value++) {
     await expect(
       year.getByRole("option", { name: `${value} (forecast)`, exact: true }),
     ).toHaveCount(1);
@@ -763,16 +763,16 @@ test("future years, real spending, and household controls update real results", 
   const row = page
     .getByRole("region", { name: "Year-by-year thresholds" })
     .getByRole("row")
-    .filter({ has: page.getByRole("cell", { name: "2035", exact: true }) });
+    .filter({ has: page.getByRole("cell", { name: "2036", exact: true }) });
   const scenario = page.getByLabel("Real spending", { exact: true });
   await scenario.selectOption("ce_trend");
   await expect(row.getByRole("cell").nth(1)).toHaveText(
-    currency(yearEntry(2035, "ce_trend").thresholds.renter),
+    currency(yearEntry(2036, "ce_trend").thresholds.renter),
   );
   const trendThreshold = await threshold(page).textContent();
   await scenario.selectOption("zero_real");
   await expect(row.getByRole("cell").nth(1)).toHaveText(
-    currency(yearEntry(2035, "zero_real").thresholds.renter),
+    currency(yearEntry(2036, "zero_real").thresholds.renter),
   );
   await expect(threshold(page)).not.toHaveText(trendThreshold);
   await expect(page.getByTestId("year-by-year-card")).toContainText(
@@ -803,7 +803,7 @@ test("year chart exposes the breakdown by pointer, keyboard and touch", async ({
 }, testInfo) => {
   const chart = page.getByTestId("threshold-history-chart");
   await expect(chart).toBeVisible();
-  await expect(page.getByTestId("threshold-history-segment")).toHaveCount(13);
+  await expect(page.getByTestId("threshold-history-segment")).toHaveCount(14);
   await expect(
     page.getByTestId("threshold-history-values"),
   ).not.toHaveAttribute("open");
@@ -1015,7 +1015,7 @@ test("Massachusetts and Sumter series breaks remain visible in later years", asy
     await expect(warning).toContainText(
       `${disclosure.from_year}→${disclosure.to_year}: ${disclosure.interpretation}`,
     );
-    await year.selectOption("2035");
+    await year.selectOption("2036");
     await expect(warning).toContainText(disclosure.interpretation);
   }
   await selectArea(page, "41940");
@@ -1027,7 +1027,7 @@ test("rental support and topcoding diagnostics follow the actual area and year",
 }) => {
   const year = page.getByLabel("Threshold year", { exact: true });
   const diagnostics =
-    source.geographies[yearEntry(2035).geographyRef].median_diagnostics;
+    source.geographies[yearEntry(2036).geographyRef].median_diagnostics;
   const thin = Object.keys(diagnostics).find(
     (id) => diagnostics[id].thin_support,
   );
@@ -1038,9 +1038,9 @@ test("rental support and topcoding diagnostics follow the actual area and year",
   );
   expect(thin).toBeTruthy();
   expect(topcoded).toBeTruthy();
-  expect(menu(2035)[thin]).toBeTruthy();
-  expect(menu(2035)[topcoded]).toBeTruthy();
-  await year.selectOption("2035");
+  expect(menu(2036)[thin]).toBeTruthy();
+  expect(menu(2036)[topcoded]).toBeTruthy();
+  await year.selectOption("2036");
   const warning = page
     .getByTestId("results-footnote")
     .getByTestId("median-diagnostics-note");

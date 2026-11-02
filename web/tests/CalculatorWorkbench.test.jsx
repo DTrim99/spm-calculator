@@ -988,11 +988,11 @@ describe("canonical calculator controls and shared layout", () => {
     expect(footer).toHaveTextContent(/local build|local preview/i);
     expect(footer).toHaveTextContent("0.3.0");
     expect(footer.querySelector('a[href*="pypi.org"]')).toBeNull();
-    expect(
-      footer.querySelector(
-        'a[href="https://github.com/PolicyEngine/spm-calculator/pull/36"]',
-      ),
-    ).not.toBeNull();
+    const preview = footer.querySelector(
+      'a[href="https://github.com/PolicyEngine/spm-calculator/pull/51"]',
+    );
+    expect(preview).not.toBeNull();
+    expect(preview).toHaveTextContent("Preview Python API: release PR 51");
   });
 
   it.each(["", "/us/spm-calculator"])(
@@ -1045,7 +1045,7 @@ describe("canonical calculator controls and shared layout", () => {
     expect(footer).not.toHaveTextContent(
       /local build|local preview|preview Python API/i,
     );
-    expect(footer.querySelector('a[href*="/pull/36"]')).toBeNull();
+    expect(footer.querySelector('a[href*="/pull/51"]')).toBeNull();
     rerender(
       <CalculatorWorkbench data={{ ...data, packageVersion: "0.4.0" }} />,
     );

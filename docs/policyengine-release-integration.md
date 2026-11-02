@@ -58,7 +58,7 @@ API kind also carries state nonmetro areas; inspect `area_type` for the actual
 type. A fixed area selection uses `geography_kind="metro"` and an available
 `geography_id` from `forecast.areas_for_year(year, scenario=...)`.
 
-The bundled forecast covers 2022–2035. Its published national entries and
+The bundled forecast covers 2022–2036. Its published national entries and
 housing shares remain distinct from conditional CE/ACS forecasts and modeled
 geography. Read [rolling forecasts](rolling-forecasts.md) and
 [source validation](validation.md) before interpreting those statuses. There

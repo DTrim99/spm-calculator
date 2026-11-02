@@ -40,11 +40,11 @@ selected area's rent input can be modeled.
 Python 3.9 or newer:
 
 ```sh
-pip install spm-calculator==1.0.0.post1
+pip install spm-calculator==1.1.0
 ```
 
-With uv, `uv pip install spm-calculator==1.0.0.post1`, or
-`uv add spm-calculator==1.0.0.post1` inside a uv project. To work on the
+With uv, `uv pip install spm-calculator==1.1.0`, or
+`uv add spm-calculator==1.1.0` inside a uv project. To work on the
 package itself, install this checkout instead with
 `python -m pip install -e .`.
 
@@ -109,10 +109,10 @@ and `official_published_area` rather than inferring official status from the
 kind. National calculations are an explicit location choice. Unknown locations,
 years and scenarios raise errors.
 
-## Conditional 2026–2035 forecasts
+## Conditional 2026–2036 forecasts
 
-The default schema-2 artifact covers 2022–2035. It preserves published national
-values through 2025 and projects 2026–2035 using moving five-year Consumer
+The default schema-2 artifact covers 2022–2036. It preserves published national
+values through 2025 and projects 2026–2036 using moving five-year Consumer
 Expenditure Survey and American Community Survey windows. `ce_trend` is the
 default real-spending scenario; `zero_real` provides zero real-spending growth.
 The artifact records price assumptions, their source vintage, housing shares,

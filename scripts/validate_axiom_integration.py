@@ -366,7 +366,7 @@ def validate(args, out):
         tenures=["renter", "owner_with_mortgage", "owner_without_mortgage"],
     )
     for scenario in ("ce_trend", "zero_real"):
-        for year in (2022, 2025, 2035):
+        for year in (2022, 2025, 2036):
             run_case(f"{scenario}-{year}", frame, selection(year, scenario))
 
     # Apply through the public API and delegate every weighted statistic to Frame.

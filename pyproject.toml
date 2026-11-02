@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spm-calculator"
-version = "1.0.1"
+version = "1.1.0"
 description = "Calculate Supplemental Poverty Measure thresholds and conditional forecasts"
 readme = "README.md"
 license = "MIT"
@@ -68,6 +68,7 @@ spm_calculator = [
     "data/current/*.csv",
     "data/current/*.xlsx",
     "data/provenance/ast-portability-2026-09-09/*",
+    "data/provenance/horizon-2036-extension/*",
 ]
 
 [tool.ruff]

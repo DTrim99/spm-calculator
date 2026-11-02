@@ -136,7 +136,7 @@ def test_canonical_year_coverage_publication_status_and_county_assignment():
 
     forecast = load_forecast()
     horizon = load_horizon_inputs()
-    assert forecast.years == tuple(range(2022, 2036))
+    assert forecast.years == tuple(range(2022, 2037))
     for scenario in ("ce_trend", "zero_real"):
         for year in forecast.years:
             entry = forecast.entry(year, scenario=scenario)

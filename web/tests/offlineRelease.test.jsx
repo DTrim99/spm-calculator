@@ -14,7 +14,7 @@ import { readFileSync } from "node:fs";
 import { expandCalculatorData } from "../lib/loadCalculatorData";
 import CalculatorWorkbench from "../src/components/CalculatorWorkbench";
 
-const YEARS = Array.from({ length: 14 }, (_, offset) => 2022 + offset);
+const YEARS = Array.from({ length: 15 }, (_, offset) => 2022 + offset);
 const readCalculatorData = () =>
   expandCalculatorData(
     JSON.parse(readFileSync("public/data/release_config.json", "utf8")),
@@ -343,7 +343,7 @@ describe("canonical export integration", () => {
           .series_breaks[0];
       expect(disclosure.from_rent_index).toBe(1.551);
       expect(disclosure.to_rent_index).toBe(1.043);
-      for (const year of [2022, 2023, 2035]) {
+      for (const year of [2022, 2023, 2036]) {
         selectYear(year);
         const warning = screen.getByTestId("historical-series-break-warning");
         expect(warning).toBeVisible();
@@ -369,7 +369,7 @@ describe("canonical export integration", () => {
       for (const [year, areaId] of [
         [2022, "45001"],
         [2023, "modeled_residual_metro:45"],
-        [2035, "modeled_residual_metro:45"],
+        [2036, "modeled_residual_metro:45"],
       ]) {
         selectYear(year);
         selectArea(areaId);
@@ -426,12 +426,19 @@ describe("canonical export integration", () => {
       expect(snippet).not.toMatch(
         /load_release|inflation_factor|nowcast|county|congressional/i,
       );
-      if (year === 2035) {
+      if (year >= 2035) {
+        const spending = year - 2025;
         expect(screen.getByTestId("ce-validation-warning")).toHaveTextContent(
-          /10-year spending horizon.*no retrospective backtest support/i,
+          new RegExp(
+            `${spending}-year spending horizon.*no retrospective backtest support`,
+            "i",
+          ),
         );
         expect(screen.getByTestId("acs-validation-warning")).toHaveTextContent(
-          /11-year geographic horizon.*no retrospective backtest support/i,
+          new RegExp(
+            `${spending + 1}-year geographic horizon.*no retrospective backtest support`,
+            "i",
+          ),
         );
       }
     },
