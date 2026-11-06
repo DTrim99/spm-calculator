@@ -136,7 +136,9 @@ FMLI expenditures cover food, clothing, shelter, utilities and telephone.
 `UTIL` already includes telephone. Shelter includes observed mortgage
 principal outlays. Food construction handles the 2024 redesign using an
 explicit `GROCER` allocation approximation. There is no matching FMLI
-internet summary, and the estimator omits BLS in-kind benefit imputations.
+internet summary. The estimator omits BLS in-kind benefit imputations by
+default; an optional [in-kind stage](ce-inkind-imputation.md) imputes
+them for research runs.
 
 The pipeline annualizes each quarterly recall window by four, converts to
 target-year prices using explicit annual CPI, and normalizes to the
