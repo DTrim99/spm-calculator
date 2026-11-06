@@ -1,0 +1,22 @@
+{
+  "description": "Per-child annual school lunch values the Census Bureau assigned in the public-use CPS ASEC, by reference year. Aggregate modes only; no record-level data.",
+  "reference_years": {
+    "2018": {
+      "free": 627,
+      "households": 7136,
+      "method": "Two most common positive values of SPM_SCHLUNCH summed over the household's SPM units divided by HFLUNNO, among HFLUNCH == 1 households whose HFLUNNO equals the count of members aged 5-18",
+      "reduced": 555,
+      "share_of_households_at_these_two_values": 0.7434136771300448,
+      "survey_year": 2019
+    },
+    "2019": {
+      "free": 643,
+      "households": 6070,
+      "method": "Two most common positive values of SPM_SCHLUNCH summed over the household's SPM units divided by HFLUNNO, among HFLUNCH == 1 households whose HFLUNNO equals the count of members aged 5-18",
+      "reduced": 571,
+      "share_of_households_at_these_two_values": 1.0,
+      "survey_year": 2020
+    }
+  },
+  "source": "https://www2.census.gov/programs-surveys/cps/datasets/{survey_year}/march/asecpub{yy}csv.zip"
+}

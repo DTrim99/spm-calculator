@@ -116,6 +116,10 @@ and the percentile convention remain separately unmeasured approximations.
 The youth result does not establish that these other approximations are
 negligible. No sampling or imputation uncertainty interval is estimated.
 
+A later research stage, documented in
+[CE in-kind benefit imputation](ce-inkind-imputation.md), measures the
+in-kind omission without changing this receipt.
+
 ## Archived projection evaluation
 
 The September 8 experiment used the former `projection.ProjectionInput`

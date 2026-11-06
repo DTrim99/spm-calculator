@@ -37,10 +37,15 @@ dependencies = [
 ce = [
     "curl-cffi>=0.7",
 ]
+inkind = [
+    "scipy>=1.10",
+]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
     "ruff==0.15.0",
+    "hypothesis>=6.0",
+    "scipy>=1.10",
 ]
 
 [project.scripts]
@@ -67,6 +72,8 @@ spm_calculator = [
     "data/current/*.json",
     "data/current/*.csv",
     "data/current/*.xlsx",
+    "data/inkind/*.csv",
+    "data/inkind/*.json",
     "data/provenance/ast-portability-2026-09-09/*",
     "data/provenance/horizon-2036-extension/*",
 ]
